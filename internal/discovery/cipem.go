@@ -120,10 +120,15 @@ func isSocialOrChamber(raw string) bool {
 }
 
 // HostOf returns the bare hostname of a URL, without "www." and lowercased.
+//
+// The trailing dot is the FQDN root: the roster really does list
+// "http://www.tambolini.com./", which is valid but would otherwise travel through
+// the whole pipeline as a distinct domain from "tambolini.com".
 func HostOf(raw string) string {
 	u, err := url.Parse(raw)
 	if err != nil {
 		return ""
 	}
-	return strings.TrimPrefix(strings.ToLower(u.Hostname()), "www.")
+	h := strings.TrimSuffix(strings.ToLower(u.Hostname()), ".")
+	return strings.TrimPrefix(h, "www.")
 }

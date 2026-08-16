@@ -10,9 +10,19 @@ y losa radiante pueda rankear por encima de una de USD 2.700 sin nada de eso.
 
 ## Estado
 
-Milestone 1 (**scanner de tecnología**) implementado. Todavía no hay crawler, ni base
-de datos, ni scoring — a propósito: primero medimos cómo están construidos los sitios,
-después decidimos cuántos scrapers hacen falta.
+- **Milestone 1 — scanner de tecnología** ✅ `./cmd/scanner`
+- **Milestone 2 — adaptador TERA** ✅ `./cmd/crawl`
+- **Milestone 4 — normalización** ✅ `internal/normalize`
+- **Milestone 5 — búsqueda con scoring** ✅ `./cmd/search`
+- **Milestone 3 — PostgreSQL** ⬜ todavía en JSON
+
+Pipeline completo:
+
+```bash
+go run ./cmd/scanner    # descubre inmobiliarias y clasifica su tecnología
+go run ./cmd/crawl      # scrapea la familia TERA → out/listings.json
+go run ./cmd/search     # rankea contra el perfil de búsqueda
+```
 
 ## El hallazgo que ordena el proyecto
 
@@ -47,7 +57,17 @@ El listado viene **server-side**, sin JavaScript. La tarjeta tiene siempre la mi
 </div>
 ```
 
-Un solo adaptador cubre a toda la familia.
+### Pero el markup NO se comparte
+
+Sobre 40 sitios TERA muestreados aparecieron **37 templates de tarjeta distintos**:
+Sierra hace diseño a medida por cliente. Lo que sí comparten es la **navegación**
+(32/40 usan `/{Tipo}/{id}`) y los **rótulos de campo**.
+
+Por eso el adaptador **navega por URL y extrae por etiqueta, nunca por selector CSS**.
+Un parser de tarjetas habría que reescribirlo por inmobiliaria; uno de etiquetas no.
+
+En las fichas no hay ld+json ni tablas, pero **todas emiten Open Graph** y todas
+rotulan "Dormitorios", "Baños" y "Precios de Alquiler".
 
 ## Uso
 
@@ -88,6 +108,45 @@ Los 15 "sin responder" son honestos: 9 socios no tienen web en la nómina, 4 no 
 DNS y 2 rechazan la conexión.
 
 Flags útiles: `-workers`, `-delay` (por host), `-timeout`, `-deadline`.
+
+## La trampa del precio
+
+Las fichas traen una tabla **"Precios de Alquiler" por período**:
+
+```
+Precios de Alquiler
+  2da Quincena Enero    U$S 17.000
+  1er Quincena Febrero  U$S 12.000
+  Anual en Dólares      U$S  7.500
+```
+
+Los primeros son **temporada** — una quincena de verano, no un alquiler mensual.
+Confundirlos sería lo peor que podría hacer este scraper, así que la operación sale
+de **qué fila existe**, no de la URL bajo la que estaba el aviso. Muchos avisos que
+viven en `/casas/en-alquiler/` son temporada pura.
+
+Y el detalle que rompe todo si no se ve: **`Anual: U$S 0` significa "no se alquila
+anual"**, no una casa gratis. Leído literal es la casa más barata de Maldonado y
+encabeza cualquier ranking. Cero se trata como desconocido
+(`TestAnnualPriceIgnoresZeroSentinel`).
+
+Lo mismo con `Superficie 0 m²`, que es el "sin cargar" de la familia.
+
+## Precio: decaimiento suave, no escalones
+
+El handoff pedía dos cosas incompatibles: penalidades escalonadas (−5 pasando la
+banda, −12 más arriba) **y** que una casa de USD 3.100 con dependencia y losa
+rankee sobre una de USD 2.700 sin nada.
+
+No pueden convivir. Cruzar los 3.000 costaba 35 puntos de una (perdías el +30 de
+banda y sumabas −5), y ninguna combinación de features lo compensa — es un filtro
+duro disfrazado de blando. Ganó tu ejemplo: el precio ahora **decae linealmente**
+desde el tope de la banda hasta el máximo. Está fijado en
+`TestBetterHouseOverBudgetBeatsCheaperBareOne`.
+
+También hay un piso de plausibilidad: apareció un aviso real con
+`Alq. Anual (Dólares): USD 200` para una casa de 3 dormitorios. No se oculta —
+se muestra con el motivo escrito, pero deja de puntuar como ganga.
 
 ## Cómo clasifica
 
@@ -133,16 +192,40 @@ CIPEM es el seed registry: `https://cipem.org.uy/socios/nomina/`.
 Las carpetas de `scraper/`, `normalize/`, `scoring/`, `storage/` del plan original
 todavía no existen. Se crean cuando haya datos que las justifiquen.
 
+## Resultado del primer crawl (2026-08-16)
+
+```
+611 listings de 47 inmobiliarias TERA
+
+  rent_annual   360      en banda USD 2.000–3.000   107
+  rent_season   206      dependencia confirmada     169
+  sin operación  45      losa radiante confirmada    35
+```
+
+Top del ranking con el perfil por defecto:
+
+```
+SCORE PRECIO  DORM BAÑOS LOSA SERV  INMOBILIARIA
+100%  2200    3    3     sí   sí    adrianamartino.com
+86%   2800    3    3     ?    sí    javiersena.com
+86%   2400    3    3     ?    sí    marytierra.com.uy
+83%   2500    4    3     sí   sí    inmobiliariagorlero.com
+```
+
+Un dato para calibrar expectativas: la losa radiante aparece confirmada en **35 de 360**
+avisos anuales. No es que no la tengan — es que **no la mencionan**. Por eso el ranking
+sólo suma cuando el aviso lo dice y nunca penaliza el silencio: `?` no es `no`.
+
 ## Próximos pasos
 
-1. **Adaptador TERA** — recorrer `/casas/en-alquiler/` paginado, parsear las tarjetas,
-   seguir a `/Casa/{id}` por el detalle. Cubre la familia entera de una.
-2. **PostgreSQL + JSONB** — guardar `raw` intacto siempre, para poder reprocesar sin
-   volver a scrapear cuando cambie el normalizador.
-3. **Normalización** — dependencia de servicio, losa radiante (incluido "**loza**
-   radiante", que aparece mal escrito muy seguido), baños vs toilettes.
-4. **Scoring** — perfil de búsqueda con pesos configurables, sin descartes duros salvo
-   temporada vs alquiler anual.
+1. **PostgreSQL + JSONB** — hoy la salida es JSON. El `raw` ya se preserva entero, así
+   que migrar es mover el sink, no rehacer el pipeline.
+2. **Paginación** — los índices devuelven ~18 fichas y no se encontró link de "página
+   siguiente"; falta confirmar si eso es todo el inventario o hay más detrás de un
+   parámetro.
+3. **Números escritos con letra** — "consta de cuatro dormitorios" no se parsea. Es
+   frecuente en las descripciones largas.
+4. **Las otras familias** — WordPress (7) y custom (11) suman 18 inmobiliarias más.
 5. **Deduplicación** — la misma casa publicada por varias inmobiliarias.
 
 ## Tests

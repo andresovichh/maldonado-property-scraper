@@ -132,7 +132,9 @@ func TestHostOf(t *testing.T) {
 	for in, want := range map[string]string{
 		"https://www.Aispuru.com/x": "aispuru.com",
 		"http://gary.uy":            "gary.uy",
-		"not a url":                 "",
+		// Real entry in the roster: the FQDN root dot must not create a second domain.
+		"http://www.tambolini.com./": "tambolini.com",
+		"not a url":                  "",
 	} {
 		if got := HostOf(in); got != want {
 			t.Errorf("HostOf(%q) = %q, want %q", in, got, want)
