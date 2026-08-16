@@ -1,0 +1,3498 @@
+[
+  {
+    "agency": {
+      "name": "ADMINISTRACIÓN CIRIACOS’S",
+      "domain": "ciriacos.com.uy",
+      "website": "http://www.ciriacos.com.uy/",
+      "email": "puntadeleste@ciriacos.com.uy",
+      "phone": "+59842449747",
+      "address": "Ed. Santos Dumont Local 11, Gorlero y 30 y por calle 24 y 30"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.ciriacos.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ALDA Group",
+      "domain": "alda.com.uy",
+      "website": "http://www.alda.com.uy/",
+      "email": "info@alda.com.uy",
+      "phone": "+598 98 001 717",
+      "address": "Rambla de los Argentinos y J.Ellauri – Piriápolis"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.alda.com.uy/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://www.alda.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": true,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ALEJANDRO PERAZZO INMOBILIARIA",
+      "domain": "alejandroperazzo.com",
+      "website": "http://www.alejandroperazzo.com/",
+      "email": "info@alejandroperazzo.com",
+      "phone": "+59842481438",
+      "address": "Ruta 10 km 160 – La Barra"
+    },
+    "reachable": true,
+    "status_code": 404,
+    "final_url": "https://uruguaysothebysrealty.com/public_html",
+    "engine": "custom",
+    "property_pages": [
+      "https://uruguaysothebysrealty.com/propiedades"
+    ],
+    "sitemaps": [
+      "https://uruguaysothebysrealty.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 9
+  },
+  {
+    "agency": {
+      "name": "ALTIUS GROUP",
+      "domain": "altius.com.uy",
+      "website": "https://www.altius.com.uy/",
+      "email": "info@altius.com.uy",
+      "address": "–"
+    },
+    "reachable": true,
+    "status_code": 500,
+    "final_url": "https://www.altius.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "AMARRAS INMOBILIARIA",
+      "domain": "amarras.com.uy",
+      "website": "http://www.amarras.com.uy/",
+      "email": "puntadeleste@amarras.com.uy",
+      "phone": "+59842444753",
+      "address": "Calle 28 Gal. Torre Gorlero LSS104 esq. Gorlero"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://amarras.com.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://amarras.com.uy/propiedades",
+      "https://amarras.com.uy/propiedades/"
+    ],
+    "sitemaps": [
+      "https://amarras.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 6
+  },
+  {
+    "agency": {
+      "name": "ATLANTIC SOUTH REAL ESTATE",
+      "domain": "atlanticsouth.com.uy",
+      "website": "https://www.atlanticsouth.com.uy/Contacto",
+      "email": "info@atlanticsouth.com.uy",
+      "address": "(+598) 91 734 672"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.atlanticsouth.com.uy/Contacto",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "BABENCO NEGOCIOS INMOBILIARIOS",
+      "domain": "babencopropiedades.com.uy",
+      "website": "http://www.babencopropiedades.com.uy",
+      "email": "jfk1808@gmail.com",
+      "phone": "(+598) 99 810 570",
+      "address": "Calle 28(Los Meros) entre calle 24 (El Mesana) y Rambla General Artigas"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.babencopropiedades.com.uy/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://www.babencopropiedades.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false,
+    "robots_disallowed": true
+  },
+  {
+    "agency": {
+      "name": "BEBA PAEZ VILARÓ INMOBILIARIA",
+      "domain": "bebapaezvilaro.com",
+      "website": "http://www.bebapaezvilaro.com/",
+      "email": "info@bebapaezvilaro.com",
+      "phone": "+59842773444",
+      "address": "Ruta 10 Km 160 – La Barra"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.bebapaezvilaro.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "BRAGLIA INMOBILIARIA",
+      "domain": "braglia.com.uy",
+      "website": "http://www.braglia.com.uy/",
+      "email": "puntadeleste@braglia.com.uy",
+      "phone": "+59842441624",
+      "address": "Gorlero nº 951"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://braglia.com.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://braglia.com.uy/",
+      "https://braglia.com.uy/propiedades/listado"
+    ],
+    "api_candidates": [
+      "https://braglia.com.uy/assets/adapi_logo_2-a5b687d2c29e066681de7fa4de5f61905dd9399a535dfb599b303be3e01358c7.jpg"
+    ],
+    "sitemaps": [
+      "https://braglia.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "BROKER BIENES RAICES",
+      "domain": "broker.com.uy",
+      "website": "https://www.broker.com.uy",
+      "email": "info@broker.com.uy",
+      "phone": "(+598) 92 306 090",
+      "address": "Calle 20 y 27 Edificio doble V- Nivel 3- Oficina 1"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://broker.com.uy/",
+    "engine": "custom",
+    "api_candidates": [
+      "https://broker.com.uy/~api/analytics"
+    ],
+    "sitemaps": [
+      "https://broker.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "C Y C PROPIEDADES GRACIELA CLAVIJO",
+      "domain": "cycpropiedades.com",
+      "website": "http://www.cycpropiedades.com/",
+      "email": "cycpropi@adinet.com.uy",
+      "phone": "+59842440102",
+      "address": "Gorlero y Calle 21 Ed. Torre Verona Local 20"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.cycpropiedades.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "CAMPOS DEL ESTE NEGOCIOS INMOBILIARIOS",
+      "domain": "camposdeleste.com",
+      "website": "http://www.camposdeleste.com/",
+      "phone": "+59842666687",
+      "address": "25 de Agosto – San Carlos"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.camposdeleste.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "CIALCETA PROPIEDADES",
+      "domain": "campouruguayo.com",
+      "website": "http://www.campouruguayo.com",
+      "email": "cialcetapropiedades@gmail.com",
+      "address": "(+598) 4244 2688/ (+598) 99 866 671"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.campouruguayo.com/",
+    "engine": "custom",
+    "property_pages": [
+      "https://www.campouruguayo.com/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "COLDWELL BANKER URUGUAY",
+      "domain": "coldwellbanker.com.uy",
+      "website": "https://coldwellbanker.com.uy/",
+      "address": "Dr. Luis A. de Herrera WTC, Torre 2 Oficina 710- Montevideo"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "https://coldwellbanker.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "COLMENA NEGOCIOS INMOBILIARIOS",
+      "domain": "inmobiliariacolmena.com.uy",
+      "website": "http://www.inmobiliariacolmena.com.uy/",
+      "email": "colmenacg@gmail.com",
+      "phone": "+59842441665",
+      "address": "Gorlero y 31, Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliariacolmena.com.uy/",
+    "engine": "custom",
+    "developer": "sierra",
+    "signals": [
+      "sierra-footer"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "COVELLO INTERNATIONAL",
+      "domain": "covellouruguay.com",
+      "website": "http://www.covellouruguay.com/",
+      "email": "punta@covellouruguay.com",
+      "phone": "+59842264443",
+      "address": "Pda. 19 Mansa Rbla. Williman y José Terra – Ed. Ostende Local 01"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.covellouruguay.com/",
+    "engine": "custom",
+    "property_pages": [
+      "http://www.covellouruguay.com/propiedades"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "DANIEL RODRÍGUEZ ADMINISTRACIONES",
+      "domain": "danielrodriguez.administracion.com.uy",
+      "website": "http://www.danielrodriguez.administracion.com.uy/",
+      "email": "dradmin@adinet.com.uy",
+      "phone": "+59842446447",
+      "address": "Calle 26 y 25 – Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.danielrodriguez.administracion.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "DANTE Y GUSTAVO IOCCO INMOBILIARIA",
+      "domain": "iocco.com.uy",
+      "website": "http://www.iocco.com.uy/",
+      "email": "remates@iocco.com.uy",
+      "phone": "+59829166910",
+      "address": "Rincón 412 – Montevideo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.iocco.com.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://www.iocco.com.uy/propiedades",
+      "https://www.iocco.com.uy/propiedades/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 7
+  },
+  {
+    "agency": {
+      "name": "DREAMPROP",
+      "domain": "dreamprop.net",
+      "website": "http://www.dreamprop.net/",
+      "email": "dp@dreamprop.net",
+      "address": "–"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.dreamprop.net/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ENGEL \u0026 VÖLKERS PUNTA DEL ESTE",
+      "domain": "engelvoelkers.com",
+      "website": "http://www.engelvoelkers.com/puntadeleste",
+      "phone": "+59842771444",
+      "address": "Ruta 10 y Las Brisas – La Barra"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.engelvoelkers.com/uy/es/shops/la-barra",
+    "engine": "custom",
+    "sitemaps": [
+      "https://www.engelvoelkers.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "GRUPO GARDIOL NEGOCIOS INMOBILIARIOS",
+      "domain": "grupogardiol.com",
+      "website": "http://www.grupogardiol.com",
+      "email": "punta@grupogardiol.com",
+      "address": "(+598) 4522 1001"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.grupogardiol.com",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "HOME2GO",
+      "domain": "home2go.com.uy",
+      "website": "http://www.home2go.com.uy/",
+      "email": "info@home2go.com.uy",
+      "phone": "+59899585248",
+      "address": "Calle Rivera nº 6374- Montevideo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.home2go.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "JACQUELINE MOREIRA INMOBILIARIA",
+      "domain": "moreirainmobiliaria.com.uy",
+      "website": "http://www.moreirainmobiliaria.com.uy",
+      "email": "info@moreirainmobiliaria.com",
+      "address": "(+598)4432 8599/ (+598) 99 890 026"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.moreirainmobiliaria.com.uy/",
+    "engine": "custom",
+    "api_candidates": [
+      "https://fonts.googleapis.com"
+    ],
+    "sitemaps": [
+      "https://www.moreirainmobiliaria.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "JUAN GOÑI NEGOCIOS INMOBILIARIOS",
+      "domain": "jgprop.com.ar",
+      "website": "https://www.jgprop.com.ar/",
+      "email": "juanegoni@gmail.com",
+      "phone": "(+598) 91 798 528",
+      "address": "Calle Montevideo y Laguna Blanca, Complejo Pino Dorado Apto 14 Manantiales."
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.jgprop.com.ar/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "KELLER WILLIAMS ONE",
+      "domain": "kwuruguay.com",
+      "website": "https://www.kwuruguay.com",
+      "email": "kwone.punta@kwuruguay.com",
+      "phone": "+59842441410",
+      "address": "Avda. Gorlero nº 552 loc. 003 esq. 17"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://kwuruguay.com/",
+    "engine": "custom",
+    "property_pages": [
+      "https://kwuruguay.com/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 5
+  },
+  {
+    "agency": {
+      "name": "KOSAK INMOBILIARIA",
+      "domain": "kosak.com.uy",
+      "website": "http://www.kosak.com.uy/",
+      "phone": "+59897122319",
+      "address": "Av. Pedragosa Sierra Ed. Unique Of. 417"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.kosak.com.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://www.kosak.com.uy/propiedades",
+      "https://www.kosak.com.uy/propiedades/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "LAMAR INMOBILIARIA",
+      "domain": "lamar.com.uy",
+      "website": "http://www.lamar.com.uy/",
+      "email": "inmobiliarialamar@adinet.com.uy",
+      "phone": "+59842441462",
+      "address": "Calle 27 Nº 616 bis entre Gorlero y Calle 20"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.lamar.com.uy/",
+    "engine": "custom",
+    "signals": [
+      "ri.com.uy-images"
+    ],
+    "property_pages": [
+      "http://www.lamar.com.uy/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "LIDER INMOBILIARIA",
+      "domain": "liderinmobiliaria.uy",
+      "website": "http://www.liderinmobiliaria.uy/",
+      "email": "liderinmo@gmail.com",
+      "address": "Lozano 1086 esq. Lucas Obes, Montevideo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.liderinmobiliaria.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://www.liderinmobiliaria.uy/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "LIJTMAER PROPIEDADES",
+      "domain": "lijtmaer.com",
+      "website": "http://www.lijtmaer.com/",
+      "email": "consultas@lijtmaer.com",
+      "phone": "+59842441310",
+      "address": "Gorlero 894"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.lijtmaer.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "LLORET DE MAR – GREEN PARK",
+      "domain": "greenpark.com",
+      "website": "http://www.greenpark.com/",
+      "email": "alquileres@greenparkpunta.com",
+      "address": "Zolezzi 881"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://greenparkgroup.ca/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://greenparkgroup.ca/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MACARENA FERRANDO BIENES RAICES",
+      "domain": "ferrando.com.uy",
+      "website": "http://www.ferrando.com.uy",
+      "phone": "(+598) 99 885 473",
+      "address": "Calle 20, Torre Gattás, local 003"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.ferrando.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MAGDALENA GIURIA INMOBILIARIA",
+      "domain": "magdalenagiuria.com.uy",
+      "website": "http://www.magdalenagiuria.com.uy/",
+      "email": "punta@magdalenagiuria.com.uy",
+      "phone": "+59842441190",
+      "address": "Gorlero y Calle 11 – Península"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "https://www.magdalenagiuria.com.uy/403.shtml",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MARIANA SAGASTI REAL ESTATE",
+      "domain": "msagasti.com",
+      "website": "http://www.msagasti.com",
+      "email": "marianasagastibienesraices@gmail.com",
+      "address": "(+598) 92 555 001"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://msagasti.com/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://msagasti.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MARINA RISSO INVERSIONES",
+      "domain": "marinarisso.com",
+      "website": "http://www.marinarisso.com/",
+      "email": "inversiones@marinarisso.com",
+      "phone": "+59842441419",
+      "address": "Local 8 de Galería Santos Dumont – Calle Gorlero y 30 –  Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.marinarisso.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MIRANDA BOSCH URUGUAY",
+      "domain": "mirandabosch.com",
+      "website": "http://www.mirandabosch.com",
+      "address": "(+598) 92160273"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.mirandabosch.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "NANCY REGA – RAMÓN CASTIGLIA",
+      "domain": "nrc.com.uy",
+      "website": "http://www.nrc.com.uy/",
+      "email": "nrega@adinet.com.uy",
+      "phone": "+59842444831",
+      "address": "Calle 21 y 24 – Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.nrc.com.uy/",
+    "engine": "custom",
+    "api_candidates": [
+      "https://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,800,900"
+    ],
+    "requires_javascript": true,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ORGANIZACIÓN ACASSUSO PROPIEDADES",
+      "domain": "org-acassuso.com.ar",
+      "website": "http://www.org-acassuso.com.ar/",
+      "email": "info@org-acassuso.com.uy",
+      "phone": "+59842491683",
+      "address": "Av. Pedragosa Sierra esq Madrid, Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.org-acassuso.com.ar/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "OTTO+OTTO NEGOCIOS INMOBILIARIOS",
+      "domain": "ottoinmobiliaria.com.uy",
+      "website": "http://www.ottoinmobiliaria.com.uy",
+      "email": "info@ottoinmobiliaria.com.uy",
+      "phone": "+59842499355",
+      "address": "Gorlero nº 1047 / Suc. Plaza México Yucatán loc. 05"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.ottoinmobiliaria.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PASSADORE OTERO ASESORES EN NEGOCIOS INMOBILIARIOS",
+      "domain": "passadore.uy",
+      "website": "http://www.passadore.uy/",
+      "email": "puntadeleste@passadore.com.uy",
+      "phone": "+59842494166",
+      "address": "Av Italia sn Office Punta"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.passadoreotero.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PAULO ALVEZ SOLUCIONES INMOBILIARIAS",
+      "domain": "pauloalvez.com.uy",
+      "website": "http://www.pauloalvez.com.uy/",
+      "email": "info@pauloalvez.com.uy",
+      "phone": "+59844323166",
+      "address": "Rambla de Los Argentinos y Lázaro Gadea, Piriápolis"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.pauloalvez.com.uy/",
+    "engine": "custom",
+    "property_pages": [
+      "https://www.pauloalvez.com.uy/propiedades/"
+    ],
+    "sitemaps": [
+      "https://www.pauloalvez.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 8
+  },
+  {
+    "agency": {
+      "name": "PDE PROPIEDADES",
+      "domain": "pdepropiedades.com.",
+      "website": "https://www.pdepropiedades.com.",
+      "phone": "(+598) 4244 7669",
+      "address": "Calle 29 entre Avda. Gorlero y Calle 20, local 11/12"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://pdepropiedades.com/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://pdepropiedades.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PELUFO Y SCHIAVO ADMINISTRACIÓN DE PROPIEDADES",
+      "domain": "peluffoyschiavo.com.uy",
+      "website": "http://www.peluffoyschiavo.com.uy/",
+      "email": "pelyschi@adinet.com.uy",
+      "phone": "+59842440878",
+      "address": "Calle 29 c. 26 – Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.peluffoyschiavo.com.uy/",
+    "engine": "custom",
+    "sitemaps": [
+      "https://www.peluffoyschiavo.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PEREIRA INMOBILIARIA",
+      "domain": "labarra.com",
+      "website": "http://www.labarra.com/",
+      "email": "pereira@labarra.com",
+      "phone": "+59842770162",
+      "address": "Ruta 10 km 159 Victor haedo y Los Remansos – La Barra"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "https://www.labarra.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PORTO NEGOCIOS INMOBILIARIOS",
+      "domain": "porto-inmobiliaria.com",
+      "website": "http://www.porto-inmobiliaria.com",
+      "email": "juanchoporto@gmail.com",
+      "address": "(+598) 94 868 206"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.porto-inmobiliaria.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PUNTA REALTY S.R.L.",
+      "domain": "yoopuntadeleste.com",
+      "website": "https://www.yoopuntadeleste.com/",
+      "email": "contacto@yoopuntadeleste.com",
+      "phone": "+59842498392",
+      "address": "Ed. Yoo Local 003 entre Oslo y Roosevelt"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.yoopuntadeleste.com/",
+    "engine": "custom",
+    "api_candidates": [
+      "https://www.google.com/recaptcha/api.js?render=6Leas6oqAAAAANWDPBwwdfS5wsPUW28vaitPPrdc"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PUNTAWEB SERVICIOS",
+      "domain": "puntaweb.com",
+      "website": "http://www.puntaweb.com/",
+      "email": "propiedades@puntaweb.com",
+      "phone": "+59842443711",
+      "address": "Galería Apolo Local 61"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.puntaweb.com/index.htm",
+    "engine": "custom",
+    "sitemaps": [
+      "https://www.puntaweb.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PUNTO INMOBILIARIO",
+      "domain": "puntoinmobiliario.com.uy",
+      "website": "https://www.puntoinmobiliario.com.uy/",
+      "email": "info@puntoinmobiliario.com.uy",
+      "phone": "+59827096771",
+      "address": "Calle 27 esq. 30 Ed. Doble V Piso 3 apto. 03, Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "https://www.puntoinmobiliario.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "SABÁS PEREIRA NEGOCIOS INMOBILIARIOS",
+      "domain": "samar.uy",
+      "website": "https://www.samar.uy/",
+      "email": "info@samar.uy",
+      "phone": "+59842443587",
+      "address": "Gorlero c. 29 – Gal. Shopping Center"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.samar.uy/cgi-sys/suspendedpage.cgi",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "SARA CAFARDO PROPIEDADES",
+      "domain": "saracafardopropiedades.com",
+      "website": "http://www.saracafardopropiedades.com",
+      "email": "saramariacafardo@gmail.com",
+      "address": "(+598) 98 367 553"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.saracafardopropiedades.com/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "SORHUET \u0026 SAPELLI",
+      "domain": "sorsap.com.uy",
+      "website": "https://www.sorsap.com.uy",
+      "email": "isorhuet@sys.com.uy / rvinales@sys.com.uy",
+      "phone": "(+598) 26011903/ (+598) 99 427 783",
+      "address": "Gral Nariño 1997, Carrasco Montevideo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.sorsap.com.uy",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "TERRAMAR SERVICIOS INMOBILIARIOS",
+      "domain": "terramar.com.uy",
+      "website": "http://www.terramar.com.uy/",
+      "email": "labarra@terramar.com.uy",
+      "phone": "+59842770707",
+      "address": "Ruta 10 Km. 161 – La Barra"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://terramar.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "TORIBIO ACHAVAL",
+      "domain": "toribioachaval.com.uy",
+      "website": "http://www.toribioachaval.com.uy",
+      "email": "infouy@toribiochaval.com.uy",
+      "address": "(+598) 4522 1111"
+    },
+    "reachable": true,
+    "status_code": 403,
+    "final_url": "http://www.toribioachaval.com.uy",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "VISTA AZUL INMOBILIARIA",
+      "domain": "vistaazul.com.uy",
+      "website": "https://www.vistaazul.com.uy/",
+      "email": "info@vistaazul.com.uy",
+      "address": "Calle Tacoma esq. Ruta 10, La Barra"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.vistaazul.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "WILL NEGOCIOS INMOBILIARIOS",
+      "domain": "will.com.uy",
+      "website": "http://www.will.com.uy",
+      "email": "info@will.com.uy",
+      "address": "(+598) 99933330"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.will.com.uy/",
+    "engine": "custom",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "WYNTER INMOBILIARIA",
+      "domain": "wynterinmobiliaria.com",
+      "website": "http://www.wynterinmobiliaria.com/",
+      "email": "punta@wynterinmobiliaria.com.uy",
+      "phone": "+59842449244",
+      "address": "Calle 18 y 28 – Ed. Cónsul Local 005"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.wynterinmobiliaria.com/",
+    "engine": "custom",
+    "requires_javascript": true,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ADDRESS NEGOCIOS INMOBILIARIOS",
+      "domain": "addresspuntadeleste.com",
+      "website": "http://www.addresspuntadeleste.com/",
+      "email": "info@addresspuntadeleste.com",
+      "phone": "+59842448763",
+      "address": "Gorlero y 19 Edificio Espigon Gorlero Local 02"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.addresspuntadeleste.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "http://www.addresspuntadeleste.com/",
+      "http://www.addresspuntadeleste.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 23
+  },
+  {
+    "agency": {
+      "name": "ADRIANA MARTINO PROPIEDADES",
+      "domain": "adrianamartino.com",
+      "website": "http://www.adrianamartino.com/",
+      "email": "adrianamartino@gmail.com",
+      "address": "Carlos Vaz Ferreira y Lenguas de Diamante, Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.adrianamartino.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.adrianamartino.com/",
+      "https://www.adrianamartino.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "AGROPUNTA PROPIEDADES",
+      "domain": "agropuntapropiedades.com",
+      "website": "http://www.agropuntapropiedades.com/",
+      "email": "agropunta@gmail.com",
+      "phone": "+59842448896",
+      "address": "Gorlero 838 entre calle 27 y 28 Local 08"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.agropuntapropiedades.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.agropuntapropiedades.com/",
+      "https://www.agropuntapropiedades.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "ALFA GROUP INMOBILIARIA",
+      "domain": "alfagroupuy.com",
+      "website": "http://www.alfagroupuy.com/",
+      "email": "info@alfagroupuy.com",
+      "phone": "+59842440203",
+      "address": "Miami Shopping Calle 24 casi 27 Local 028"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.alfagroupuy.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.alfagroupuy.com/casas/en-alquiler/",
+      "https://www.alfagroupuy.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 19
+  },
+  {
+    "agency": {
+      "name": "AMAZONA NEGOCIOS INMOBILIARIOS",
+      "domain": "amazona.uy",
+      "website": "http://www.amazona.uy/",
+      "email": "propiedadespunta@gmail.com",
+      "address": "Calle Obenque s/n"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.amazona.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.amazona.uy/",
+      "https://www.amazona.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 11
+  },
+  {
+    "agency": {
+      "name": "AQUIPUNTA INMOBILIARIA",
+      "domain": "aquipuntainmobiliaria.com",
+      "website": "http://www.aquipuntainmobiliaria.com/",
+      "email": "aquipuntainmobiliariacom",
+      "phone": "+59842775423",
+      "address": "Calle 6 y Avenida Central. Punta Colorada"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.aquipuntainmobiliaria.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.aquipuntainmobiliaria.com/",
+      "https://www.aquipuntainmobiliaria.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 23
+  },
+  {
+    "agency": {
+      "name": "ATELIER INMOBILIARIO",
+      "domain": "atelierinmobiliario.com.uy",
+      "website": "http://www.atelierinmobiliario.com.uy/",
+      "email": "info@atelierinmobiliario.com.uy",
+      "address": "Edificio Ancora  Av. Roosevelt y Artigas – Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.atelierinmobiliario.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.atelierinmobiliario.com.uy/",
+      "http://www.atelierinmobiliario.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 30
+  },
+  {
+    "agency": {
+      "name": "B\u0026H PROPIEDADES",
+      "domain": "bhpropiedades.com.uy",
+      "website": "http://www.bhpropiedades.com.uy",
+      "email": "info@bhpropiedades.com.uy",
+      "phone": "(+598) 99 859 517 / (+598) 99 810 047",
+      "address": "Calle 24 y 21 , local 12 edificio Karol lll"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.bhpropiedades.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.bhpropiedades.com.uy/",
+      "https://www.bhpropiedades.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "BINTANG PROPIEDADES",
+      "domain": "bintang.com.uy",
+      "website": "http://www.bintang.com.uy",
+      "email": "bintang@bintang.comuy",
+      "address": "(+598) 42 440 533 / (+598) 93 917 100 / (+598) 95 811 686"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.bintang.com.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.bintang.com.uy",
+      "http://www.bintang.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 15
+  },
+  {
+    "agency": {
+      "name": "BISTIANCIC PROPIEDADES",
+      "domain": "bistiancicpropiedades.com.uy",
+      "website": "http://www.bistiancicpropiedades.com.uy/",
+      "email": "info@bistiancicpropiedades.com.uy",
+      "phone": "+59842228718",
+      "address": "Acuña de Figueroa y Roosevelt pda. 16"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.bistiancicpropiedades.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.bistiancicpropiedades.com.uy/",
+      "https://www.bistiancicpropiedades.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 30
+  },
+  {
+    "agency": {
+      "name": "BORSARI INMOBILIARIA",
+      "domain": "borsari.com.uy",
+      "website": "http://www.borsari.com.uy/",
+      "email": "borsari@borsari.com.uy",
+      "phone": "+59842443635",
+      "address": "Calle 24 entre 27 y 28 – Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.borsari.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.borsari.com.uy/",
+      "https://www.borsari.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "BRUMAR PROPIEDADES",
+      "domain": "brumar.uy",
+      "website": "http://www.brumar.uy",
+      "email": "caludia@brumnar.uy",
+      "phone": "(+598) 96 988 862",
+      "address": "Edificio Sea Breezes apto 202 -Rambla Williams Parada 27"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.brumar.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.brumar.uy/",
+      "https://www.brumar.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "CAETANO NEGOCIOS INMOBILIARIOS",
+      "domain": "caetano.com.uy",
+      "website": "http://www.caetano.com.uy/",
+      "email": "hola@caetano.com.uy",
+      "address": "Calle Gorlero esq 17, península, Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.caetano.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.caetano.com.uy/casas/en-alquiler/",
+      "http://www.caetano.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 19
+  },
+  {
+    "agency": {
+      "name": "CARRIQUIRY PROPIEDADES",
+      "domain": "carriquiry.com.uy",
+      "website": "http://carriquiry.com.uy/",
+      "email": "info@carriquiry.com.uy",
+      "phone": "+59842487709",
+      "address": "Bv. Artigas entre Pascual Gattas y Los Andes, Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://carriquiry.com.uy/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://carriquiry.com.uy/",
+      "http://carriquiry.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 24
+  },
+  {
+    "agency": {
+      "name": "CORALES REAL ESTATE",
+      "domain": "coralesrealestate.com",
+      "website": "http://coralesrealestate.com",
+      "email": "info@coralesrealestate.com",
+      "address": "+598)  94189226"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://coralesrealestate.com",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://coralesrealestate.com",
+      "http://coralesrealestate.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 13
+  },
+  {
+    "agency": {
+      "name": "CRISTINA NAUM INMOBILIARIA",
+      "domain": "cristinanaum.com",
+      "website": "http://www.cristinanaum.com/",
+      "email": "martrave@cristinanaum.com",
+      "phone": "+59842446431",
+      "address": "Calle 29 entre Gorlero y 24"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.cristinanaum.com/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "http://www.cristinanaum.com/casas/en-alquiler/",
+      "http://www.cristinanaum.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 14
+  },
+  {
+    "agency": {
+      "name": "CUPERTINO NEGOCIOS INMOBILIARIOS",
+      "domain": "cupertino.uy",
+      "website": "https://www.cupertino.uy/",
+      "email": "andrea@cupertino.uy",
+      "address": "(+598)  092 800 105"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://cupertino.uy/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://cupertino.uy/",
+      "https://cupertino.uy/apartamentos/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 6
+  },
+  {
+    "agency": {
+      "name": "CÁNEPA Y CÁNEPA NEGOCIOS INMOBILIARIOS Y CAMPOS",
+      "domain": "canepa.com.uy",
+      "website": "http://www.canepa.com.uy/",
+      "email": "puntadeleste@canepa.com.uy",
+      "phone": "+59842498497",
+      "address": "Calle 20 y 27 Edificio Castellamare Local 003."
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.canepa.com.uy/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.canepa.com.uy/",
+      "https://www.canepa.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 29
+  },
+  {
+    "agency": {
+      "name": "DE LEÓN PROPIEDADES",
+      "domain": "deleonpropiedades.com.uy",
+      "website": "http://www.deleonpropiedades.com.uy/",
+      "email": "consultas@deleonpropiedades.com.uy",
+      "phone": "+59842771317",
+      "address": "Calle 3 y Aud. Jaureguiberry"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.deleonpropiedades.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.deleonpropiedades.com.uy/",
+      "https://www.deleonpropiedades.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 24
+  },
+  {
+    "agency": {
+      "name": "ELIANA PINTOS BIENES RAÍCES",
+      "domain": "elianabienesraices.com",
+      "website": "http://www.elianabienesraices.com",
+      "email": "inmoelianabienesraices@gmail.com",
+      "phone": "(+598) 98 375 431",
+      "address": "Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.elianabienesraices.com",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.elianabienesraices.com",
+      "http://www.elianabienesraices.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 11
+  },
+  {
+    "agency": {
+      "name": "FINCAS DEL ESTE",
+      "domain": "fincasdeleste.com.uy",
+      "website": "http://www.fincasdeleste.com.uy",
+      "email": "ventas@fincasdeleste.com.uy",
+      "address": "(+598) 98 254 663/ (+598) 42 25 46 63"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.fincasdeleste.com.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.fincasdeleste.com.uy",
+      "http://www.fincasdeleste.com.uy/casas/en-alquiler/"
+    ],
+    "sitemaps": [
+      "http://www.fincasdeleste.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "GALE PROPIEDADES Y ESCRIBANÍA",
+      "domain": "galepropiedades.com.uy",
+      "website": "https://www.galepropiedades.com.uy",
+      "email": "gale@galepropiedades.com.uy",
+      "phone": "(+598) 96 988 862",
+      "address": "Avda. Gorlero – Torre Gorlero Local 026."
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.galepropiedades.com.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.galepropiedades.com.uy",
+      "https://www.galepropiedades.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "GARRIDO ASOCIADAS NEGOCIOS INMOBILIARIOS",
+      "domain": "garridoasociadas.com",
+      "website": "http://www.garridoasociadas.com/",
+      "email": "garridoasociadas@gmail.com",
+      "phone": "+59842497607",
+      "address": "Ed. Torre Antares Local 001"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.garridoasociadas.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.garridoasociadas.com/",
+      "https://www.garridoasociadas.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "GARY+ EXPERIENCIA INMOBILIARIA",
+      "domain": "gary.uy",
+      "website": "https://www.gary.uy",
+      "phone": "(+598) 4247 8888",
+      "address": "Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.gary.uy",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://www.gary.uy",
+      "https://www.gary.uy/"
+    ],
+    "sitemaps": [
+      "https://www.gary.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 9
+  },
+  {
+    "agency": {
+      "name": "GIMENO´S REAL ESTATE",
+      "domain": "gimenos.com.uy",
+      "website": "https://www.gimenos.com.uy/",
+      "email": "leomar@gimenos.com.uy",
+      "address": "+598)  97770005"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.gimenos.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.gimenos.com.uy/",
+      "https://www.gimenos.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "GROW INVERSIONES INMOBILIARIAS",
+      "domain": "growinversionesinmobiliarias.uy",
+      "website": "https://www.growinversionesinmobiliarias.uy",
+      "phone": "(+598) 95 903 000",
+      "address": "Avda. Italia esq. Avda. Chiverta."
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.growinversionesinmobiliarias.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.growinversionesinmobiliarias.uy",
+      "https://www.growinversionesinmobiliarias.uy/casas/en-alquiler/"
+    ],
+    "sitemaps": [
+      "https://www.growinversionesinmobiliarias.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 23
+  },
+  {
+    "agency": {
+      "name": "GRUPO RAZYEL",
+      "domain": "gruporazyel.uy",
+      "website": "http://www.gruporazyel.uy",
+      "email": "gruporazyel@gmail.com",
+      "phone": "(+598) 98 904 056",
+      "address": "Galería Sagasti Apto. nº 102- Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.gruporazyel.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.gruporazyel.uy/",
+      "https://www.gruporazyel.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 11
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA GARCÍA \u0026 CEDRÉS",
+      "domain": "garciaycedresinmobiliaria.com.uy",
+      "website": "https://www.garciaycedresinmobiliaria.com.uy",
+      "phone": "(+598) 92091122",
+      "address": "Calle  Maestro Américo Mafio Caiaffa esq. Joaquín Lenzina"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.garciaycedresinmobiliaria.com.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.garciaycedresinmobiliaria.com.uy",
+      "https://www.garciaycedresinmobiliaria.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA GORLERO",
+      "domain": "inmobiliariagorlero.com",
+      "website": "http://www.inmobiliariagorlero.com/",
+      "email": "info@inmobiliariagorlero.com",
+      "phone": "+59842448300",
+      "address": "Av. Gorlero 986 entre calle 30 y 31 – Galería Sagasti L. 08/09"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliariagorlero.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://www.inmobiliariagorlero.com/",
+      "https://www.inmobiliariagorlero.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA PUCURULL",
+      "domain": "pucurull.com",
+      "website": "https://www.pucurull.com/",
+      "email": "contacto@pucurull.com",
+      "phone": "+59842578160",
+      "address": "Ruta Inerbalnearia- Km. 117 1/2 – Punta Ballena"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.pucurull.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.pucurull.com/",
+      "https://www.pucurull.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 9
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA PUNTA HOMES",
+      "domain": "puntahomes.uy",
+      "website": "https://www.puntahomes.uy",
+      "phone": "(+598) 92091122",
+      "address": "Andrómeda esq. Espiga Ch. “Antumalal”"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.puntahomes.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.puntahomes.uy",
+      "https://www.puntahomes.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 38
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA VISTANET",
+      "domain": "vistanet.uy",
+      "website": "https://www.vistanet.uy",
+      "phone": "(+598) 98864364",
+      "address": "Avda. Artigas s/n entre calle 18 y20. L.01 Ed. Capri, Atlántida"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.vistanet.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.vistanet.uy",
+      "https://www.vistanet.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 15
+  },
+  {
+    "agency": {
+      "name": "INTEGRA ASESORES INMOBILIARIOS",
+      "domain": "integra.com.uy",
+      "website": "http://www.integra.com.uy/",
+      "email": "info@integra.com.uy",
+      "phone": "+59842448511",
+      "address": "Calle 24 esq. Calle 19"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.integra.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "INÉS PODESTÁ PROPIEDADES",
+      "domain": "inespodesta.com.uy",
+      "website": "http://www.inespodesta.com.uy/",
+      "email": "info@inespodesta.com.uy",
+      "phone": "+59842499885",
+      "address": "Joaquín Lenzina y Bvar Artigas – Pda. 2"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.inespodesta.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.inespodesta.com.uy/",
+      "http://www.inespodesta.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "IRV IVANNA RODRIGUEZ VIGNOLY PROPIEDADES",
+      "domain": "irvpropiedades.com",
+      "website": "https://irvpropiedades.com/",
+      "email": "info@irvpropiedades.com",
+      "address": "Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://irvpropiedades.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://irvpropiedades.com/",
+      "https://irvpropiedades.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 28
+  },
+  {
+    "agency": {
+      "name": "JAVIER SENA INMOBILIARIA",
+      "domain": "javiersena.com",
+      "website": "https://www.javiersena.com/",
+      "email": "inmuebles@javiersena.com",
+      "phone": "+59842488778",
+      "address": "Ed. Torre del Plata II Pda. 2 Calles Lenzina y Arazatí"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.javiersena.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.javiersena.com/",
+      "https://www.javiersena.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 18
+  },
+  {
+    "agency": {
+      "name": "JORGE DÍAZ PROPIEDADES",
+      "domain": "jorgediaz.com.uy",
+      "website": "http://www.jorgediaz.com.uy/",
+      "email": "inmobiliaria@jorgediaz.com.uy",
+      "phone": "+59842440109",
+      "address": "Calle Ma. Eugenia Vaz Ferreira  N° 3176  entre Avda. Francisco Salazar y Arazatí"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.jorgediaz.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://www.jorgediaz.com.uy/",
+      "https://www.jorgediaz.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "KAREN COLOMBO PROPIEDADES",
+      "domain": "karencolombopropiedades.com",
+      "website": "http://www.karencolombopropiedades.com",
+      "email": "info@karencolombopropiedades.com",
+      "phone": "(+598) 99 483 962",
+      "address": "Calle 30 entre Avda. Gorlero y Calle 20"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.karencolombopropiedades.com",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.karencolombopropiedades.com",
+      "http://www.karencolombopropiedades.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "LA PORTA NEGOCIOS INMOBILIARIOS",
+      "domain": "inmobiliarialaporta.com.uy",
+      "website": "https://www.inmobiliarialaporta.com.uy",
+      "email": "info@inmobiliarialaporta.com.uy",
+      "phone": "(+598)  4732 7872 // (+598)  4733 5665",
+      "address": "Juan Zorrilla de San Martín 163- Salto"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliarialaporta.com.uy",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://www.inmobiliarialaporta.com.uy",
+      "https://www.inmobiliarialaporta.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 17
+  },
+  {
+    "agency": {
+      "name": "LATITUD PUNTA",
+      "domain": "latitudpunta.com.uy",
+      "website": "https://www.latitudpunta.com.uy",
+      "email": "info@latitudpunta.com.uy",
+      "phone": "+59898343335",
+      "address": "Avda. Gorlero y calle 19- Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.latitudpunta.com.uy",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://www.latitudpunta.com.uy"
+    ],
+    "api_candidates": [
+      "https://www.latitudpunta.com.uy/manifest.json"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "LILIÁN FURTADO INMOBILIARIA",
+      "domain": "lilianfurtado.com",
+      "website": "http://www.lilianfurtado.com",
+      "phone": "+59842770142",
+      "address": "Eduardo Franco y Razzano"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.lilianfurtado.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.lilianfurtado.com/casas/en-alquiler/",
+      "https://www.lilianfurtado.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 12
+  },
+  {
+    "agency": {
+      "name": "M\u0026M BROKER",
+      "domain": "mmbroker.global",
+      "website": "https://mmbroker.global/",
+      "email": "contacto@mmbroker.global",
+      "address": "(+598) 94 387 881"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://mmbroker.global/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://mmbroker.global/",
+      "https://mmbroker.global/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "MACHADO INMOBILIARIA",
+      "domain": "machadoinmobiliaria.com.uy",
+      "website": "https://www.machadoinmobiliaria.com.uy/",
+      "email": "info@machadoinmobiliaria.com.uy",
+      "phone": "+59842480797",
+      "address": "Av. Francisco Salazar y Lenzina, Parada 2 Brava, Edificio Triangulo Mansa local 13B"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.machadoinmobiliaria.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.machadoinmobiliaria.com.uy/",
+      "https://www.machadoinmobiliaria.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 22
+  },
+  {
+    "agency": {
+      "name": "MAR Y TIERRA PROPIEDADES",
+      "domain": "marytierra.com.uy",
+      "website": "http://www.marytierra.com.uy/",
+      "email": "jose@marytierra.com.uy",
+      "phone": "+59842447877",
+      "address": "Calle 29 entre Gorlero y Calle 20 Ed. Gramado loc. 02"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.marytierra.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.marytierra.com.uy/",
+      "https://www.marytierra.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 21
+  },
+  {
+    "agency": {
+      "name": "MARTA OJEDA INMOBILIARIA",
+      "domain": "martaojeda.com.uy",
+      "website": "http://www.martaojeda.com.uy/",
+      "email": "marta@martaojeda.com.uy",
+      "phone": "+59842447877",
+      "address": "Ed. Torre Barcelona Apto. 301 A"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.martaojeda.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.martaojeda.com.uy/",
+      "http://www.martaojeda.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 5
+  },
+  {
+    "agency": {
+      "name": "MD PROPIEDADES",
+      "domain": "mdpropiedades.com",
+      "website": "http://www.mdpropiedades.com/",
+      "email": "juanandresmarquine@hotmail.com",
+      "phone": "+59842772744",
+      "address": "Ruta 10 km 160 La Barra Chalet Bonito Invierno"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.mdpropiedades.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.mdpropiedades.com/",
+      "http://www.mdpropiedades.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 24
+  },
+  {
+    "agency": {
+      "name": "MIRANDA Y DÍAZ PROPIEDADES",
+      "domain": "mirandaydiaz.com",
+      "website": "http://www.mirandaydiaz.com/",
+      "email": "info@mirandaydiaz.com",
+      "phone": "+59842489692",
+      "address": "Bvar. Artigas y Pda. 2 y 1/2"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.mirandaydiaz.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "MONTAÑÉS PROPIEDADES",
+      "domain": "emp.com.uy",
+      "website": "http://www.emp.com.uy/",
+      "email": "info@emp.com.uy",
+      "phone": "+59842233626",
+      "address": "Sarandí 483 y Burnett – Maldonado"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://montanes.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://montanes.uy/",
+      "https://montanes.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "NICOLÁS DE MÓDENA INMOBILIARIA",
+      "domain": "nicolasdemodena.com",
+      "website": "https://www.nicolasdemodena.com/",
+      "email": "info@nicolasdemodena.com",
+      "phone": "+59842479336",
+      "address": "Rambla Batlle Pacheco Parada 2, Torres del Plata I Local 002"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.nicolasdemodena.com/",
+    "engine": "tera",
+    "signals": [
+      "inmToken",
+      "ri.com.uy-images",
+      "tera-bot",
+      "tera.com.uy-link"
+    ],
+    "tera_token": "UTDAdp2UIq62",
+    "property_pages": [
+      "https://www.nicolasdemodena.com/",
+      "https://www.nicolasdemodena.com/casas/en-alquiler/"
+    ],
+    "sitemaps": [
+      "https://www.nicolasdemodena.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 24
+  },
+  {
+    "agency": {
+      "name": "NIETO \u0026 PÁEZ INMOBILIARIA",
+      "domain": "nietoypaezinmobiliaria.com",
+      "website": "http://www.nietoypaezinmobiliaria.com/",
+      "email": "betty@nietoypaez.com",
+      "phone": "+59842491515",
+      "address": "Rambla Mansa y Pda. 1 y 1/2 – Ed. Emperador"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.nietoypaezinmobiliaria.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.nietoypaezinmobiliaria.com/",
+      "https://www.nietoypaezinmobiliaria.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "PAROLIN \u0026 ASOCIADOS PROPIEDADES",
+      "domain": "parolinpropiedades.com",
+      "website": "http://www.parolinpropiedades.com/",
+      "email": "tamara@parolinpropiedades.com",
+      "phone": "+59842490523",
+      "address": "Avda. Chiverta y Cántaro Fresco"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.parolinpropiedades.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.parolinpropiedades.com/",
+      "https://www.parolinpropiedades.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 18
+  },
+  {
+    "agency": {
+      "name": "PEDRO GAVA NEGOCIOS INMOBILIARIOS",
+      "domain": "pedrogava.com",
+      "website": "http://www.pedrogava.com/",
+      "email": "info@pedrogava.com",
+      "phone": "+59844323119",
+      "address": "Rbla. De los Argentinos y Zufriategüi – Piriapolis"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.pedrogava.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.pedrogava.com/",
+      "https://www.pedrogava.com/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 36
+  },
+  {
+    "agency": {
+      "name": "PLAYA DEL ESTE INMOBILIARIA",
+      "domain": "inmobiliariaplayadeleste.com",
+      "website": "http://www.inmobiliariaplayadeleste.com/",
+      "email": "inmplaza@adinet.com.uy",
+      "phone": "+59842448032",
+      "address": "Calle 28 y Calle 20 – Ed. Torre Liguria Local 002"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliariaplayadeleste.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.inmobiliariaplayadeleste.com/",
+      "https://www.inmobiliariaplayadeleste.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 29
+  },
+  {
+    "agency": {
+      "name": "PRANA BROKERS",
+      "domain": "pranabrokers.com.uy",
+      "website": "https://www.pranabrokers.com.uy/",
+      "email": "prana@pranabrokers.com.uy",
+      "phone": "+59842772553",
+      "address": "Julio Sosa y Camino Eguzquiza – La Barra"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.pranabrokers.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.pranabrokers.com.uy/casas/en-venta/",
+      "https://www.pranabrokers.com.uy/apartamentos/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 16
+  },
+  {
+    "agency": {
+      "name": "PUNTA BALLENA INMOBILIARIA",
+      "domain": "puntaballenainmobiliaria.com",
+      "website": "https://www.puntaballenainmobiliaria.com/",
+      "email": "pbi@adinet.com.uy",
+      "phone": "+59842578200",
+      "address": "Ruta Interbalnearia – Km. 118"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://puntaballenainmobiliaria.com/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://puntaballenainmobiliaria.com/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 19
+  },
+  {
+    "agency": {
+      "name": "REAL NEGOCIOS INMOBILIARIOS",
+      "domain": "realinmobiliaria.com.uy",
+      "website": "https://www.realinmobiliaria.com.uy",
+      "email": "info@realinmobiliaria.com.uy",
+      "phone": "+59842775883",
+      "address": "Calle 16 y ruta 10 Balneario Buenos Aires"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.realinmobiliaria.com.uy",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.realinmobiliaria.com.uy",
+      "https://www.realinmobiliaria.com.uy/casas/en-venta/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 38
+  },
+  {
+    "agency": {
+      "name": "REBECA NEGOCIOS INMOBILIARIOS",
+      "domain": "rebecainmobiliaria.com",
+      "website": "https://www.rebecainmobiliaria.com/",
+      "email": "rebeca@rebecainmobiliaria.com",
+      "phone": "+59842449999",
+      "address": "Calle 24 Nº 740 y Calle 25"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.rebecainmobiliaria.com/",
+    "engine": "tera",
+    "signals": [
+      "ri.com.uy-images",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.rebecainmobiliaria.com/",
+      "https://www.rebecainmobiliaria.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 8
+  },
+  {
+    "agency": {
+      "name": "ROSA BOSSO NEGOCIOS INMOBILIARIOS",
+      "domain": "inmobiliariarosabosso.com",
+      "website": "https://www.inmobiliariarosabosso.com/",
+      "email": "inmobiliariarosabosso@gmail.com",
+      "phone": "+59842449898",
+      "address": "Calle 29 y Gorlero Local 03"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliariarosabosso.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.inmobiliariarosabosso.com/",
+      "https://www.inmobiliariarosabosso.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "RÍO DE LA PLATA INMOBILIARIA",
+      "domain": "riodelaplatainmobiliaria.com",
+      "website": "http://www.riodelaplatainmobiliaria.com",
+      "email": "riodeplata@riodelaplatainmobiliaria.com",
+      "phone": "+59842491504",
+      "address": "Cont. Gorlero 1115 – La Pastora"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://riodelaplatainmobiliaria.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera-url-scheme"
+    ],
+    "property_pages": [
+      "https://riodelaplatainmobiliaria.com/apartamentos/en-alquiler/"
+    ],
+    "sitemaps": [
+      "https://riodelaplatainmobiliaria.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 18
+  },
+  {
+    "agency": {
+      "name": "SANTIAGO PEREYRA PROPIEDADES",
+      "domain": "santiagopereyra.com.uy",
+      "website": "https://www.santiagopereyra.com.uy/",
+      "email": "info@santiagopereyra.com.uy",
+      "phone": "+59842487000",
+      "address": "Ed. Triángulo Mansa local 03- Avda. Francisco Salazar y Lenzina Brava Pda. 2"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.santiagopereyra.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "inmToken",
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera-bot",
+      "tera.com.uy-link"
+    ],
+    "tera_token": "kXNKyPzPFklQ",
+    "property_pages": [
+      "https://www.santiagopereyra.com.uy/",
+      "https://www.santiagopereyra.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 35
+  },
+  {
+    "agency": {
+      "name": "SANTOS DUMONT INMOBILIARIA",
+      "domain": "santosdumont.com.uy",
+      "website": "http://www.santosdumont.com.uy/",
+      "email": "dumont@adinet.com.uy",
+      "phone": "+59842441324",
+      "address": "Gorlero y 30 – Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.santosdumont.com.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.santosdumont.com.uy/",
+      "https://www.santosdumont.com.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 20
+  },
+  {
+    "agency": {
+      "name": "SHIRLEY COR PROPIEDADES",
+      "domain": "shirleycor.com",
+      "website": "http://www.shirleycor.com/",
+      "email": "contacto@shirleycor.com",
+      "phone": "+59842772877",
+      "address": "Francisco Canaro entre Jorge Berrueta y Atahualpa del Cioppo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.shirleycor.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.shirleycor.com/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "SÁDER INMOBILIARIA",
+      "domain": "saderinmobiliaria.com",
+      "website": "https://www.saderinmobiliaria.com/",
+      "email": "centro@saderinmobiliaria.com",
+      "phone": "+59842441832",
+      "address": "Gorlero y 30 – Península"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.saderinmobiliaria.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.saderinmobiliaria.com/",
+      "https://www.saderinmobiliaria.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 16
+  },
+  {
+    "agency": {
+      "name": "TAMBOLINI PROPIEDADES",
+      "domain": "tambolini.com.",
+      "website": "http://www.tambolini.com.",
+      "email": "contacto@tambolini.com",
+      "address": "(+598)42264779/ (+598) 98 068 582"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.tambolini.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.tambolini.com/",
+      "https://www.tambolini.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "URUSOL INMOBILIAIRA",
+      "domain": "urusol.uy",
+      "website": "https://urusol.uy/",
+      "email": " urusol.m@gmail.com",
+      "address": "Román Guerra 701 esq. Arturo Santana"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://urusol.uy/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://urusol.uy/",
+      "https://urusol.uy/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 8
+  },
+  {
+    "agency": {
+      "name": "VILLALBA PROPIEDADES",
+      "domain": "villalbapropiedades.com",
+      "website": "https://www.villalbapropiedades.com",
+      "email": "info@villalbapropiedades.com",
+      "phone": " (+598)  4243 7834 / (+598) 98 385 929",
+      "address": "Ed. Cadaques local 007- Calle 23 esq. calle 24"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.villalbapropiedades.com",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.villalbapropiedades.com",
+      "https://www.villalbapropiedades.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 16
+  },
+  {
+    "agency": {
+      "name": "VIP PUNTA PRO",
+      "domain": "vippuntapro.com",
+      "website": "http://www.vippuntapro.com",
+      "email": "info@vippuntapro.com",
+      "address": "(+598) 99413741 / (+598) 91829660"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.vippuntapro.com",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.vippuntapro.com",
+      "http://www.vippuntapro.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 17
+  },
+  {
+    "agency": {
+      "name": "WAVE REAL ESTATE",
+      "domain": "waveuy.com",
+      "website": "https://www.waveuy.com/",
+      "email": "info@blanquitadibiase.com",
+      "phone": " (+598) 94 446 004",
+      "address": "Sarandí 863. Paysandú"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.waveuy.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.waveuy.com/",
+      "https://www.waveuy.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 40
+  },
+  {
+    "agency": {
+      "name": "ÍNDIGO PROPIEDADES",
+      "domain": "indigopropiedades.com",
+      "website": "http://www.indigopropiedades.com/",
+      "email": "vero@indigopropiedades.com",
+      "phone": "+59842447653",
+      "address": "Calle 25 y 26 – Ed. Club del Mar SS 102"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "http://www.indigopropiedades.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "http://www.indigopropiedades.com/",
+      "http://www.indigopropiedades.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 18
+  },
+  {
+    "agency": {
+      "name": "APOLOGROUP NEGOCIOS INMOBILIARIOS",
+      "domain": "",
+      "email": "apologroup.negocios@gmail.com",
+      "address": "Gorlero y Calle 29 -Torre Apolo Local 062"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "ARCO’S NEGOCIOS INMOBILIARIOS",
+      "domain": "",
+      "email": "inmobiarcos@gmail.com",
+      "phone": "+59842221291",
+      "address": "Arcobaleno Panorámico II Pda. 18"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "BLÁS PROPIEDADES",
+      "domain": "",
+      "email": "blasprop@adinet.com.uy",
+      "phone": "+59842489007",
+      "address": "Roosevelt y Pda. 15. Torre Punta del Este Local 006"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "BOSQUEMAR GESTIÓN INMOBILIARIA",
+      "domain": "",
+      "email": "jose.boix@boix.com.uy",
+      "phone": "+59842249860",
+      "address": "Complejo Comercial Bº Norte Local 005"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "CLAUDIA SILVA ADMINISTRACIONES",
+      "domain": "",
+      "email": "claudiasilvaadm@adinet.com.uy",
+      "phone": "+59842494904",
+      "address": "Chaná nº 673 entre Lenzina y Charrúa"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "FRANCA REAL ESTATE",
+      "domain": "francarealestate.com",
+      "website": "https://www.francarealestate.com",
+      "phone": "(+598) 4277 1906",
+      "address": "Ruta 10 entre Duende Azul y Los Ensueños"
+    },
+    "reachable": false,
+    "error": "Get \"https://www.francarealestate.com\": dial tcp 108.163.145.209:443: i/o timeout",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA DEL TRIÁNGULO",
+      "domain": "",
+      "email": "ebon@adinet.com.uy",
+      "phone": "+59842442510",
+      "address": "Calle 24 esq. Calle 23 – Ed. Cadaques Local 003"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA GABRIEL BARRIOS",
+      "domain": "",
+      "email": "inmobiliariagabrielbarrios@gmail.com",
+      "phone": "+59842577577",
+      "address": "Av. Joaquín de Viana 604, Ed. Milenium Local 03, Maldonado"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "INMOBILIARIA VERONA PUNTA",
+      "domain": "veronapunta.com",
+      "website": "http://www.veronapunta.com/",
+      "email": "info@veronapunta.com",
+      "phone": "+59842449687",
+      "address": "Calle 21 y Gorlero Ed. Torre Verona Local 028"
+    },
+    "reachable": false,
+    "error": "Get \"http://www.veronapunta.com/\": dial tcp: lookup www.veronapunta.com: i/o timeout",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PABLO Y SUÁREZ PROPIEDADES",
+      "domain": "pabloysuarez.com",
+      "website": "http://www.pabloysuarez.com/",
+      "email": "info@pabloysuarez.com",
+      "phone": "+59842442320",
+      "address": "Gorlero 542 – Península"
+    },
+    "reachable": false,
+    "error": "no such host",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "PAN DE AZÚCAR INMOBILIARIA",
+      "domain": "",
+      "email": "pazucar@adinet.com.uy",
+      "phone": "+59842223574",
+      "address": "Florida 865 loc. 10 esq. Dodera Ed. Catedral- Maldonado"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "REMAX MAR",
+      "domain": "",
+      "email": "mar@remax.com.uy",
+      "phone": "+59842498088",
+      "address": "Rambla Dr. Claudio Williman, Parada 1 Playa Mansa, Edificio Vanguardia, local 001 Punta del Este"
+    },
+    "reachable": false,
+    "error": "agency has no website",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "STERN SERVICIOS INMOBILIARIOS",
+      "domain": "sternyasociados.com",
+      "website": "http://www.sternyasociados.com/",
+      "email": "info@sternyasociados.com",
+      "phone": "+59842446060",
+      "address": "Avda. Gorlero 957"
+    },
+    "reachable": false,
+    "error": "no such host",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "SUEVIA INMOBILIARIA",
+      "domain": "inmobiliariasuevia.com",
+      "website": "http://www.inmobiliariasuevia.com/",
+      "email": "susuevia@adinet.com.uy",
+      "phone": "+59842442334",
+      "address": "Calle 29 c. 24 : Península"
+    },
+    "reachable": false,
+    "error": "no such host",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "VIÑOLY NEGOCIOS INMOBILIARIOS",
+      "domain": "viñolynegociosinmobiliarios.com",
+      "website": "https://www.viñolynegociosinmobiliarios.com",
+      "email": "viñolyinmobiliaria@gmail.com",
+      "phone": "(+598) 98 603 698",
+      "address": "Ituzaingo y Avda. Joaquín de Viana"
+    },
+    "reachable": false,
+    "error": "no such host",
+    "engine": "unknown",
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "GINEVRA INTERNATIONAL REALTY",
+      "domain": "ginevrasir.com",
+      "website": "http://www.ginevrasir.com/",
+      "email": "mercedes.ginevra@ginevrasir.com",
+      "phone": "+59842494800",
+      "address": "Ruta 10 esquina Los Ensueños La Barra"
+    },
+    "reachable": true,
+    "status_code": 404,
+    "final_url": "https://www.ginevrasir.com/",
+    "engine": "wix",
+    "requires_javascript": true,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "JUAN MIRABALLES VENTAS Y ALQUILERS",
+      "domain": "juanmiraballes.com",
+      "website": "http://www.juanmiraballes.com/",
+      "address": "Av. del Mar y San Remo Ed. Quartier del Mar"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.juanmiraballes.com/",
+    "engine": "wix",
+    "property_pages": [
+      "https://www.juanmiraballes.com/"
+    ],
+    "api_candidates": [
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/damion/v15/hv-XlzJ3KEUe_YZkZGw2EzJwV9J-.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/damion/v15/hv-XlzJ3KEUe_YZkamw2EzJwVw.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCp0y2lvQNTIQoQ.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCp4y2lvQNTIQoQ.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCp8y2lvQNTIQoQ.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCpAy2lvQNTI.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCpMy2lvQNTIQoQ.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/play/v11/6ae84K2oVqwItm4TCpQy2lvQNTIQoQ.woff2"
+    ],
+    "sitemaps": [
+      "https://www.juanmiraballes.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 5
+  },
+  {
+    "agency": {
+      "name": "ZULAMIÁN DESARROLLOS INMOBILIARIOS",
+      "domain": "zulamian.com",
+      "website": "http://www.zulamian.com/",
+      "email": "ventas@zulamian.com",
+      "phone": "+59842486701",
+      "address": "Av. Roosevelt y Av. Pedragosa Sierra Local 003"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.zulamian.com/",
+    "engine": "wix",
+    "api_candidates": [
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v18/fIKu7GwZTy_12XzG_jt8eA.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOkCnqEu92Fr1Mu51xIIzIXKMny.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/roboto/v32/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2"
+    ],
+    "sitemaps": [
+      "https://www.zulamian.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "AISPURÚ BIENES RAÍCES",
+      "domain": "aispuru.com",
+      "website": "http://www.aispuru.com/",
+      "email": "juan@aispuru.com",
+      "phone": "+59844862433",
+      "address": "Faro José Ignacio – Golondrinas casi Cisnes"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://aispuru.com/",
+    "engine": "wordpress",
+    "signals": [
+      "ri.com.uy-images",
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://aispuru.com/propiedades/"
+    ],
+    "api_candidates": [
+      "https://aispuru.com/manifest.json",
+      "https://aispuru.com/wp-json/wp/v2/",
+      "https://fonts.googleapis.com"
+    ],
+    "sitemaps": [
+      "https://aispuru.com/sitemap.xml",
+      "https://aispuru.com/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 10
+  },
+  {
+    "agency": {
+      "name": "ANTONIO MIERES NEGOCIOS INMOBILIARIOS",
+      "domain": "antoniomieres.com.uy",
+      "website": "http://www.antoniomieres.com.uy/",
+      "email": "info@antoniomieres.com.uy",
+      "phone": "+59842448516",
+      "address": "Gorlero esq. Calle 29 Local 005"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://antoniomieres.com.uy/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://antoniomieres.com.uy/",
+      "https://antoniomieres.com.uy/campos-en-venta-en-uruguay/"
+    ],
+    "api_candidates": [
+      "https://antoniomieres.com.uy/wp-json/wp/v2/",
+      "https://fonts.googleapis.com"
+    ],
+    "sitemaps": [
+      "https://antoniomieres.com.uy/sitemap.xml",
+      "https://antoniomieres.com.uy/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 6
+  },
+  {
+    "agency": {
+      "name": "BRICK REAL ESTATE",
+      "domain": "inmobiliariabrick.com",
+      "website": "http://inmobiliariabrick.com",
+      "email": "info@inmobiliariabrick.com",
+      "address": "(+598) 96 983 880"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.inmobiliariabrick.com/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://www.inmobiliariabrick.com/",
+      "https://www.inmobiliariabrick.com/propiedades/"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com",
+      "https://www.inmobiliariabrick.com/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.inmobiliariabrick.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 28
+  },
+  {
+    "agency": {
+      "name": "CASA VALOR",
+      "domain": "casavalor.com.uy",
+      "website": "https://www.casavalor.com.uy/",
+      "email": "carolina@casavalor.com.uy",
+      "phone": "+59842243286",
+      "address": "18 de Julio entre Tammaro y Lavalleja, Montevideo"
+    },
+    "reachable": true,
+    "status_code": 500,
+    "final_url": "https://casavalor.com.uy/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://casavalor.com.uy/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://casavalor.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "EDUARDO RODRIGO \u0026 ASOCIADOS NEGOCIOS INMOBILIARIOS",
+      "domain": "eduardorodrigo.com.uy",
+      "website": "http://www.eduardorodrigo.com.uy/",
+      "email": "info@eduardorodrigo.com.uy",
+      "phone": "+59842497484",
+      "address": "Miami y Biarritz – Chalet Saint Honore"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://eduardorodrigo.com.uy/",
+    "engine": "wordpress",
+    "signals": [
+      "ri.com.uy-images",
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://eduardorodrigo.com.uy/",
+      "https://eduardorodrigo.com.uy/propiedades/"
+    ],
+    "api_candidates": [
+      "https://eduardorodrigo.com.uy/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://eduardorodrigo.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 12
+  },
+  {
+    "agency": {
+      "name": "FARO GRUPO INMOBILIARIO",
+      "domain": "faro.com.uy",
+      "website": "http://www.faro.com.uy/",
+      "email": "fgonzalezgrossi@faro.com.uy",
+      "phone": "+59842441111",
+      "address": "Calle 14 y Gorlero – Ed. Lafayette Local 03/04"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.faro.com.uy/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://www.faro.com.uy/"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com",
+      "https://www.faro.com.uy/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.faro.com.uy/sitemap.xml",
+      "https://www.faro.com.uy/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 5
+  },
+  {
+    "agency": {
+      "name": "FOCUS  PROPERTIES URUGUAY",
+      "domain": "focusproperties.com.uy",
+      "website": "http://www.focusproperties.com.uy",
+      "email": "info@focusproperties.com.uy",
+      "phone": "+59895592329",
+      "address": "Chalet Laredo, calle Voltaire entre San Pablo y las Magnolias"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://focuspropertiesuruguay.com/es/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://focuspropertiesuruguay.com/wp-json/wp/v2/",
+      "https://fonts.googleapis.com"
+    ],
+    "sitemaps": [
+      "https://focuspropertiesuruguay.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "GREEN PARK URUGUAY – GPUy",
+      "domain": "greenparkuruguay.com",
+      "website": "http://www.greenparkuruguay.com",
+      "email": "dario@greenparkuruguay.com",
+      "phone": "(+598) 99 965 919",
+      "address": "Rbla. República de Chile 4667- Apto. 505- Montevideo"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://greenparkuruguay.com/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com",
+      "https://greenparkuruguay.com/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://greenparkuruguay.com/sitemap.xml",
+      "https://greenparkuruguay.com/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "GRUPO ESTENZA REAL ESTATE \u0026 LIFESTYLE",
+      "domain": "grupoestenza.com",
+      "website": "https://www.grupoestenza.com",
+      "email": "info@grupoestenza.com",
+      "phone": "(+598) 4243 7241",
+      "address": "Calle 20 esq. calle 31 – Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://grupoestenza.com/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://grupoestenza.com/",
+      "https://grupoestenza.com/propiedades/"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com",
+      "https://grupoestenza.com/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://grupoestenza.com/sitemap.xml",
+      "https://grupoestenza.com/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 23
+  },
+  {
+    "agency": {
+      "name": "INVERGROUP",
+      "domain": "invergroup.com.uy",
+      "website": "https://www.invergroup.com.uy",
+      "phone": "(+598) 4225 3700",
+      "address": "Avda. Roosevelt y parada 17- Punta del Este"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.invergroup.com.uy",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/manrope/v19/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+      "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/raleway/v26/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2",
+      "https://www.invergroup.com.uy/_api/one-app-session-web/v3/businesses",
+      "https://www.invergroup.com.uy/_api/v1/access-tokens",
+      "https://www.invergroup.com.uy/_api/v2/dynamicmodel",
+      "https://www.invergroup.com.uy/api/",
+      "https://www.invergroup.com.uy/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.invergroup.com.uy/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "LOCATION SRL",
+      "domain": "location.uy",
+      "website": "https://www.location.uy/",
+      "email": "nblanco@location.uy",
+      "phone": "+59844862558",
+      "address": "La Juanita José Ignacio Ruta 10 Km 183"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.location.uy/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "property_pages": [
+      "https://www.location.uy/"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com",
+      "https://www.location.uy/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.location.uy/sitemap.xml",
+      "https://www.location.uy/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 4
+  },
+  {
+    "agency": {
+      "name": "URUHAUS",
+      "domain": "uruhaus.com",
+      "website": "https://www.uruhaus.com",
+      "email": "info@uruhaus.com",
+      "phone": "+59891208112",
+      "address": "Av. italia y Veracruz , edificio Del Sol"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://uruhaus.com/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://uruhaus.com/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://uruhaus.com/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "VAN BEVERN PROPIEDADES",
+      "domain": "van-bevern.com",
+      "website": "https://www.van-bevern.com",
+      "phone": "(+598) 95 916391",
+      "address": "Ruta 104 km 5 Pueblo Mío- Manantiales."
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.van-bevern.com",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://fonts.googleapis.com/css2?family=",
+      "https://www.google.com/recaptcha/api.js?render=explicit\u0026#038;onload=houzezReCaptchaLoad\u0026%23038;ver=4.2.4",
+      "https://www.van-bevern.com/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.van-bevern.com/sitemap.xml",
+      "https://www.van-bevern.com/sitemap_index.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  },
+  {
+    "agency": {
+      "name": "WMW Weiss Mora Weiss",
+      "domain": "wsw.com.uy",
+      "website": "http://www.wsw.com.uy/",
+      "email": "info@wsw.com.uy",
+      "phone": "+59842484949",
+      "address": "Avda. Roosevelt Pda.11"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.puntadeleste.net/",
+    "engine": "wordpress",
+    "signals": [
+      "wp-content"
+    ],
+    "api_candidates": [
+      "https://www.puntadeleste.net/wp-json/wp/v2/"
+    ],
+    "sitemaps": [
+      "https://www.puntadeleste.net/sitemap.xml"
+    ],
+    "requires_javascript": false,
+    "has_inventory": false
+  }
+]

@@ -1,0 +1,6 @@
+/bin/
+*.html
+.env
+
+# El resultado del scan SÍ se versiona (out/scan.csv, out/scan.json): es el
+# entregable del Milestone 1 y sirve de baseline para ver qué cambia entre corridas.
