@@ -5,6 +5,8 @@ import (
 	"context"
 	"fmt"
 	"regexp"
+	"sort"
+	"strconv"
 	"strings"
 	"time"
 
@@ -58,8 +60,21 @@ func ListingIndexURL(base, propertyType, operation string, periodo int) string {
 // PeriodoAnual is the family's select value for annual rentals.
 const PeriodoAnual = 17
 
-// DetailURLs returns the listing detail URLs found on an index page.
-func (t *Tera) DetailURLs(ctx context.Context, indexURL string) ([]string, error) {
+// rePageLink matches the family's pager: <a href='...?pagina=2' class='page-link'>.
+//
+// Note the single quotes — the pager markup uses them while the rest of the page
+// uses double, which is why an earlier double-quote-only probe concluded there was
+// no pagination at all. bintang.com.uy advertises "68 Resultados" and shows 18.
+var rePageLink = regexp.MustCompile(`href=['"]([^'"]*[?&]pagina=(\d+)[^'"]*)['"]`)
+
+// reResultCount reads the "68 Resultados Encontrados" line, which lets us tell a
+// complete index from a truncated one.
+var reResultCount = regexp.MustCompile(`(?i)(\d+)\s*Resultados?\s*Encontrad`)
+
+// DetailURLs returns every listing detail URL for an index, following the pager.
+//
+// maxPages bounds the walk; 0 means "as many as the pager advertises".
+func (t *Tera) DetailURLs(ctx context.Context, indexURL string, maxPages int) ([]string, error) {
 	res, err := t.f.Get(ctx, indexURL)
 	if err != nil {
 		return nil, err
@@ -67,7 +82,76 @@ func (t *Tera) DetailURLs(ctx context.Context, indexURL string) ([]string, error
 	if res.Status != 200 {
 		return nil, fmt.Errorf("index %s: status %d", indexURL, res.Status)
 	}
-	return ExtractDetailURLs(res.Body, res.URL), nil
+
+	seen := map[string]bool{}
+	var out []string
+	addAll := func(body, base string) int {
+		added := 0
+		for _, u := range ExtractDetailURLs(body, base) {
+			if !seen[u] {
+				seen[u] = true
+				out = append(out, u)
+				added++
+			}
+		}
+		return added
+	}
+	addAll(res.Body, res.URL)
+
+	pages := PageURLs(res.Body, res.URL)
+	if maxPages > 0 && len(pages) > maxPages {
+		pages = pages[:maxPages]
+	}
+	for _, p := range pages {
+		if ctx.Err() != nil {
+			break
+		}
+		pr, err := t.f.Get(ctx, p)
+		if err != nil || pr.Status != 200 {
+			continue
+		}
+		// A pager that keeps serving the same rows means we have reached the end;
+		// stop rather than walk a loop of identical pages.
+		if addAll(pr.Body, pr.URL) == 0 {
+			break
+		}
+	}
+	return out, nil
+}
+
+// PageURLs returns the pager's pages 2..N, in order and deduplicated. Page 1 is the
+// index we already fetched.
+func PageURLs(body, base string) []string {
+	seen := map[int]string{}
+	for _, m := range rePageLink.FindAllStringSubmatch(body, -1) {
+		n, err := strconv.Atoi(m[2])
+		if err != nil || n < 2 {
+			continue
+		}
+		if _, ok := seen[n]; !ok {
+			seen[n] = absolute(base, htmlUnescape(m[1]))
+		}
+	}
+	nums := make([]int, 0, len(seen))
+	for n := range seen {
+		nums = append(nums, n)
+	}
+	sort.Ints(nums)
+	out := make([]string, 0, len(nums))
+	for _, n := range nums {
+		out = append(out, seen[n])
+	}
+	return out
+}
+
+// ResultCount reports how many results the index says it has, when it says so.
+func ResultCount(body string) (int, bool) {
+	m := reResultCount.FindStringSubmatch(body)
+	if m == nil {
+		return 0, false
+	}
+	n, err := strconv.Atoi(m[1])
+	return n, err == nil
 }
 
 // ExtractDetailURLs pulls /{Tipo}/{id} links out of an index page, deduplicated and

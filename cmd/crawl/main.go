@@ -28,16 +28,18 @@ import (
 
 func main() {
 	var (
-		scanFile   = flag.String("scan", "out/scan.json", "scanner output to take the agency list from")
-		outFile    = flag.String("out", "out/listings.json", "where to write normalised listings")
-		types      = flag.String("types", "casas", "comma-separated property types to crawl")
-		operation  = flag.String("operation", "alquiler", "alquiler | venta")
-		workers    = flag.Int("workers", 8, "agencies crawled in parallel")
-		delay      = flag.Duration("delay", 1200*time.Millisecond, "minimum delay between requests to the same host")
-		timeout    = flag.Duration("timeout", 25*time.Second, "per-request timeout")
-		deadline   = flag.Duration("deadline", 30*time.Minute, "give up on the whole run after this")
-		limit      = flag.Int("limit", 0, "crawl only the first N agencies (0 = all)")
-		maxPerSite = flag.Int("max-per-site", 40, "cap on detail pages fetched per agency")
+		scanFile      = flag.String("scan", "out/scan.json", "scanner output to take the agency list from")
+		outFile       = flag.String("out", "out/listings.json", "where to write normalised listings")
+		types         = flag.String("types", "casas", "comma-separated property types to crawl")
+		operation     = flag.String("operation", "alquiler", "alquiler | venta")
+		workers       = flag.Int("workers", 8, "agencies crawled in parallel")
+		delay         = flag.Duration("delay", 1200*time.Millisecond, "minimum delay between requests to the same host")
+		timeout       = flag.Duration("timeout", 25*time.Second, "per-request timeout")
+		deadline      = flag.Duration("deadline", 30*time.Minute, "give up on the whole run after this")
+		limit         = flag.Int("limit", 0, "crawl only the first N agencies (0 = all)")
+		maxPerSite    = flag.Int("max-per-site", 500, "cap on listings kept per agency")
+		maxPages      = flag.Int("max-pages", 25, "cap on index pages followed per property type")
+		maxCandidates = flag.Int("max-candidates", 400, "cap on candidate URLs probed per non-TERA agency")
 	)
 	flag.Parse()
 
@@ -57,13 +59,15 @@ func main() {
 
 	f := discovery.NewFetcher(*timeout, *delay)
 	t := scraper.NewTera(f)
+	gen := scraper.NewGeneric(f)
 
-	fmt.Printf("crawling %d agencias TERA (%s / %s)\n\n", len(agencies), *types, *operation)
+	fmt.Printf("crawling %d agencias con inventario (%s / %s)\n\n", len(agencies), *types, *operation)
 
 	var (
-		mu       sync.Mutex
-		listings []*model.Listing
-		stats    = map[string]int{}
+		mu        sync.Mutex
+		listings  []*model.Listing
+		truncated []string
+		stats     = map[string]int{}
 	)
 
 	var wg sync.WaitGroup
@@ -79,7 +83,15 @@ func main() {
 				return
 			}
 
-			got, err := crawlAgency(ctx, t, a, splitCSV(*types), *operation, *maxPerSite)
+			var (
+				got []*model.Listing
+				err error
+			)
+			if a.Engine == "tera" {
+				got, err = crawlAgency(ctx, t, a, splitCSV(*types), *operation, *maxPerSite, *maxPages)
+			} else {
+				got, err = gen.Scrape(ctx, a.Domain, a.IndexURLs, *maxCandidates, *maxPerSite)
+			}
 
 			mu.Lock()
 			defer mu.Unlock()
@@ -90,7 +102,14 @@ func main() {
 			if len(got) > 0 {
 				stats["agencias con listings"]++
 			}
-			fmt.Printf("  %-38s %3d listings\n", truncate(a.Domain, 38), len(got))
+			// A cap that silently trims inventory reads exactly like an agency that
+			// simply has less — say it out loud instead.
+			note := ""
+			if len(got) >= *maxPerSite {
+				note = "  ⚠ TRUNCADA por -max-per-site"
+				truncated = append(truncated, a.Domain)
+			}
+			fmt.Printf("  %-38s %3d listings%s\n", truncate(a.Domain, 38), len(got), note)
 		}(a)
 	}
 	wg.Wait()
@@ -117,13 +136,19 @@ func main() {
 			fmt.Printf("  %-22s %4d\n", k, stats[k])
 		}
 	}
+	if len(truncated) > 0 {
+		fmt.Printf("\n⚠ %d agencias truncadas en %d listings — subí -max-per-site para completarlas:\n   %s\n",
+			len(truncated), *maxPerSite, strings.Join(truncated, ", "))
+	}
 	fmt.Printf("\nescrito en %s\n", *outFile)
 }
 
 type agency struct {
-	Name   string
-	Domain string
-	Base   string
+	Name      string
+	Domain    string
+	Base      string
+	Engine    string
+	IndexURLs []string // where the scanner already found inventory (non-TERA sites)
 }
 
 func teraAgencies(path string) ([]agency, error) {
@@ -137,19 +162,27 @@ func teraAgencies(path string) ([]agency, error) {
 	}
 	var out []agency
 	for _, r := range results {
-		if r.Engine != discovery.EngineTera || !r.HasInventory || r.RobotsDisallowed {
+		// Every agency the scanner found real inventory on, whatever engine it runs.
+		// Restricting this to TERA was leaving 19 agencies on the table.
+		if !r.HasInventory || r.RobotsDisallowed || r.RequiresJavaScript {
 			continue
 		}
 		base := r.FinalURL
 		if base == "" {
 			base = "https://" + r.Agency.Domain
 		}
-		out = append(out, agency{Name: r.Agency.Name, Domain: r.Agency.Domain, Base: baseOf(base)})
+		out = append(out, agency{
+			Name:      r.Agency.Name,
+			Domain:    r.Agency.Domain,
+			Base:      baseOf(base),
+			Engine:    string(r.Engine),
+			IndexURLs: r.PropertyPages,
+		})
 	}
 	return out, nil
 }
 
-func crawlAgency(ctx context.Context, t *scraper.Tera, a agency, types []string, operation string, maxPerSite int) ([]*model.Listing, error) {
+func crawlAgency(ctx context.Context, t *scraper.Tera, a agency, types []string, operation string, maxPerSite, maxPages int) ([]*model.Listing, error) {
 	var urls []string
 	seen := map[string]bool{}
 
@@ -157,7 +190,7 @@ func crawlAgency(ctx context.Context, t *scraper.Tera, a agency, types []string,
 		// periodo=17 asks the site for annual rentals. Some sites honour it, some
 		// ignore it; either way the price table decides, so this is only a saving.
 		idx := scraper.ListingIndexURL(a.Base, pt, operation, scraper.PeriodoAnual)
-		found, err := t.DetailURLs(ctx, idx)
+		found, err := t.DetailURLs(ctx, idx, maxPages)
 		if err != nil {
 			continue
 		}

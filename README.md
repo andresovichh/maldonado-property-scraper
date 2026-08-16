@@ -192,41 +192,77 @@ CIPEM es el seed registry: `https://cipem.org.uy/socios/nomina/`.
 Las carpetas de `scraper/`, `normalize/`, `scoring/`, `storage/` del plan original
 todavía no existen. Se crean cuando haya datos que las justifiquen.
 
-## Resultado del primer crawl (2026-08-16)
+## Resultado del crawl (2026-08-16)
 
 ```
-611 listings de 47 inmobiliarias TERA
+1141 listings de 56 inmobiliarias · sin truncamiento
 
-  rent_annual   360      en banda USD 2.000–3.000   107
-  rent_season   206      dependencia confirmada     169
-  sin operación  45      losa radiante confirmada    35
+  rent_annual   451      en banda USD 2.000–3.000   138
+  rent_season   635      dependencia confirmada     203
+  sin operación  55      baño de servicio           188
+                         losa radiante               40
 ```
+
+| Motor | Listings | Inmobiliarias |
+|---|---|---|
+| TERA | 1083 | 47 |
+| custom | 35 | 5 |
+| WordPress | 23 | 4 |
 
 Top del ranking con el perfil por defecto:
 
 ```
 SCORE PRECIO  DORM BAÑOS LOSA SERV  INMOBILIARIA
-100%  2200    3    3     sí   sí    adrianamartino.com
-86%   2800    3    3     ?    sí    javiersena.com
-86%   2400    3    3     ?    sí    marytierra.com.uy
-83%   2500    4    3     sí   sí    inmobiliariagorlero.com
+100%  2200    3    3     sí   sí    adrianamartino.com/Casa/69302
+86%   2800    3    3     ?    sí    javiersena.com/Casa/169265
+86%   2400    3    3     ?    sí    marytierra.com.uy/Casa/1686
+86%   2500    3    3     ?    sí    galepropiedades.com.uy/Casa/4864
 ```
 
-Un dato para calibrar expectativas: la losa radiante aparece confirmada en **35 de 360**
+Un dato para calibrar expectativas: la losa radiante aparece confirmada en **40 de 451**
 avisos anuales. No es que no la tengan — es que **no la mencionan**. Por eso el ranking
 sólo suma cuando el aviso lo dice y nunca penaliza el silencio: `?` no es `no`.
 
+## Cobertura: qué entra y qué no
+
+De las 156 de la nómina CIPEM:
+
+| | |
+|---|---|
+| Con inventario, **crawleadas** | **56** |
+| Con inventario pero el crawl falla (índice en otra ruta, timeouts) | 21 |
+| Requieren JavaScript (harían falta Rod/Chromium) | 4 |
+| Sin inventario online / sitio institucional | 55 |
+| No responden o sin web en la nómina | 15 |
+
+Las 21 con error son el próximo objetivo: el scanner ya les confirmó inventario, así que
+es cuestión de encontrarles la ruta, no de tecnología nueva.
+
+**Nada se recorta en silencio.** Si un tope por inmobiliaria corta inventario, el crawler
+lo dice con nombre y apellido — un recorte callado se lee igual que "esa inmobiliaria
+tiene menos propiedades", que es la peor clase de error porque no se nota.
+
+## Paginación
+
+Los índices grandes paginan con `?pagina=N`. Se descubrió tarde porque **el paginador usa
+comillas simples** mientras el resto de la página usa dobles, y un sondeo que sólo miraba
+dobles concluyó que no había paginación: `bintang.com.uy` anuncia "68 Resultados" y servía
+18. Fijado en `TestPageURLsHandlesSingleQuotedPager`.
+
 ## Próximos pasos
 
-1. **PostgreSQL + JSONB** — hoy la salida es JSON. El `raw` ya se preserva entero, así
+1. **Las 21 que fallan** — inventario confirmado, ruta de índice desconocida. Es donde
+   está el mayor rendimiento por hora de trabajo.
+2. **PostgreSQL + JSONB** — hoy la salida es JSON. El `raw` ya se preserva entero, así
    que migrar es mover el sink, no rehacer el pipeline.
-2. **Paginación** — los índices devuelven ~18 fichas y no se encontró link de "página
-   siguiente"; falta confirmar si eso es todo el inventario o hay más detrás de un
-   parámetro.
-3. **Números escritos con letra** — "consta de cuatro dormitorios" no se parsea. Es
-   frecuente en las descripciones largas.
-4. **Las otras familias** — WordPress (7) y custom (11) suman 18 inmobiliarias más.
-5. **Deduplicación** — la misma casa publicada por varias inmobiliarias.
+3. **Extracción con LLM sobre los que pasan los filtros duros** — hoy 451 anuales → 138 en
+   banda. De los avisos sin dato de losa, **268 igual hablan de calefacción** (aire
+   frío/calor, estufa a leña, caldera): hay señal que el diccionario no lee. Correr un
+   modelo sobre 138 fichas es centavos; sobre 1141 en cada crawl es plata tirada.
+4. **Embeddings de la descripción** para búsqueda difusa ("luminosa, con parque"). Con
+   ~10 mil propiedades es una columna `pgvector`, no infraestructura.
+5. **Números escritos con letra** — "consta de cuatro dormitorios" no se parsea.
+6. **Deduplicación** — la misma casa publicada por varias inmobiliarias.
 
 ## Tests
 
