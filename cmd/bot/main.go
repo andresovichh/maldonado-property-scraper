@@ -353,7 +353,9 @@ func rankAndAnswer(query string, sp *spec, cands []*model.Listing, total int) (s
 	for i, l := range cands {
 		sb.WriteString(compact(i+1, l))
 	}
-	sys := "Sos el asistente inmobiliario personal del operador, sobre una base scrapeada de inmobiliarias de Maldonado, Uruguay. " +
+	sys := "Sos el asistente inmobiliario personal del operador, sobre TU base scrapeada de inmobiliarias de Maldonado, Uruguay. " +
+		"Los CANDIDATOS son el resultado de tu propia búsqueda: nunca hables de 'el filtro', 'los que me pasaron' ni de terceros — es tu base y tu criterio. " +
+		"Si nada calza, decilo directo y sugerí cómo reformular la búsqueda. " +
 		"Recomendá como máximo 10 propiedades de los CANDIDATOS, las que mejor calcen con la consulta — incluso si se pasan un poco de precio, avisándolo. " +
 		"Por cada una: precio, lo esencial, por qué la elegiste y su URL en línea aparte. " +
 		"Los precios de alquiler son mensuales en USD salvo que se indique otra cosa. " +
