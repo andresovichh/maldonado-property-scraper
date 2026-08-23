@@ -76,6 +76,17 @@ type Result struct {
 // page and confirms family membership.
 var teraPaths = []string{"/casas/en-alquiler/", "/casas/en-venta/", "/apartamentos/en-alquiler/"}
 
+// reNavLink harvests a link plus the words inside it. The anchor TEXT matters as
+// much as the href: a nav item reading "Propiedades" may well point at /es/p/12,
+// which no list of guessed paths would ever hit.
+var reNavLink = regexp.MustCompile(`(?is)<a\b[^>]*href=["']([^"'#]+)["'][^>]*>(.{0,120}?)</a>`)
+
+// reIndexWord marks a link as a likely inventory index.
+var reIndexWord = regexp.MustCompile(`(?i)(propiedad|inmueble|alquiler|alquilar|venta|vender|buscador|busqueda|b[uú]squeda|listado|cat[aá]logo|properties|search|casas|apartamento|emprendimiento)`)
+
+// reIndexSkip drops the links that use those same words but never list anything.
+var reIndexSkip = regexp.MustCompile(`(?i)(contacto|nosotros|quienes|about|blog|noticia|novedad|tasaci|servicio|privacidad|terminos|cookies|login|admin|wp-(admin|login)|facebook|instagram|whatsapp|\.(jpg|jpeg|png|webp|gif|pdf|css|js|zip|mp4)$)`)
+
 // genericPaths are the usual places a listing index lives when the site is not TERA.
 var genericPaths = []string{
 	"/propiedades", "/propiedades/", "/inmuebles", "/inmuebles/", "/alquileres",
@@ -319,11 +330,84 @@ func (r *Result) probeListings(ctx context.Context, f *Fetcher, base, homeBody s
 		sort.Strings(r.Signals)
 	}
 
+	// Nothing found by guessing paths? Follow the site's own navigation. Probing a
+	// fixed path list marked 51 reachable agencies as "sin inventario" — they simply
+	// keep their index somewhere the list did not guess.
+	if !r.HasInventory {
+		r.probeNavLinks(ctx, f, base, homeBody)
+	}
+
 	r.PropertyPages = dedupe(r.PropertyPages)
 	// A site that answers but never shows a price in raw HTML is either a SPA or
 	// has no inventory online; the SPA check separates the two.
 	if !r.HasInventory && looksLikeSPA(homeBody) {
 		r.RequiresJavaScript = true
+	}
+}
+
+// probeNavLinks looks for the inventory index by following the homepage's own links,
+// most promising first.
+func (r *Result) probeNavLinks(ctx context.Context, f *Fetcher, base, homeBody string) {
+	baseHost := HostOf(base)
+	seen := map[string]bool{}
+	type cand struct {
+		url   string
+		score int
+	}
+	var cands []cand
+
+	for _, m := range reNavLink.FindAllStringSubmatch(homeBody, -1) {
+		href := strings.TrimSpace(m[1])
+		text := stripTags(m[2])
+		if href == "" || strings.HasPrefix(href, "mailto:") || strings.HasPrefix(href, "tel:") ||
+			strings.HasPrefix(href, "javascript:") {
+			continue
+		}
+		abs := absURL(base, href)
+		// Same brand on another TLD counts: babencopropiedades.com.uy keeps its
+		// inventory on babencopropiedades.com.ar. Anything else off-host does not.
+		if !sameBrand(HostOf(abs), baseHost) || seen[abs] || abs == base {
+			continue
+		}
+		if reIndexSkip.MatchString(abs) || reIndexSkip.MatchString(text) {
+			continue
+		}
+		seen[abs] = true
+
+		score := 0
+		if reIndexWord.MatchString(text) {
+			score += 2 // what the nav calls it is the strongest hint
+		}
+		if reIndexWord.MatchString(abs) {
+			score++
+		}
+		if score > 0 {
+			cands = append(cands, cand{abs, score})
+		}
+	}
+	sort.SliceStable(cands, func(i, j int) bool { return cands[i].score > cands[j].score })
+
+	for i, c := range cands {
+		if i >= 6 || ctx.Err() != nil {
+			break // a handful of probes per site, not a crawl
+		}
+		res, err := f.Get(ctx, c.url)
+		if err != nil || res.Status != http.StatusOK {
+			continue
+		}
+		if hits := listingHits(res.Body); hits >= 3 {
+			r.HasInventory = true
+			if hits > r.ListingHits {
+				r.ListingHits = hits
+			}
+			r.Signals = append(r.Signals, "index-via-nav")
+			r.PropertyPages = append(r.PropertyPages, res.URL)
+			if len(r.PropertyPages) >= 3 {
+				return
+			}
+		} else if looksLikeSPA(res.Body) {
+			r.RequiresJavaScript = true
+		}
 	}
 }
 
@@ -339,10 +423,31 @@ func isTeraPath(p string) bool {
 	return false
 }
 
+// manyPrices is how many distinct price strings make a page a grid rather than
+// prose, on its own.
+const manyPrices = 10
+
+// listingHits scores how much a page looks like a list of properties.
+//
+// Two independent signals — prices AND room counts — keep a page of prose about
+// money ("vendimos USD 5.000.000 en 2026") from counting as inventory.
+//
+// But demanding both was too strict: babencopropiedades lists 22 prices on its
+// rental index and never prints a bedroom count on the card, so a real inventory
+// page scored zero and the agency was dropped. Ten-plus prices on one page is a
+// grid, so that now counts by itself. A false positive costs one wasted crawl
+// attempt that the crawler's own verification throws away; a false negative loses
+// the agency for good.
 func listingHits(body string) int {
 	prices := len(rePrice.FindAllString(body, 40))
 	rooms := len(reRooms.FindAllString(body, 40))
-	if prices == 0 || rooms == 0 {
+	if rooms == 0 {
+		if prices >= manyPrices {
+			return prices
+		}
+		return 0
+	}
+	if prices == 0 {
 		return 0
 	}
 	return min(prices, rooms)
@@ -360,6 +465,19 @@ var reTags = regexp.MustCompile(`(?s)<script.*?</script>|<style.*?</style>|<[^>]
 
 func stripTags(s string) string {
 	return strings.TrimSpace(reTags.ReplaceAllString(s, " "))
+}
+
+// sameBrand reports whether two hosts are the same agency: identical, or sharing
+// the first label ("babencopropiedades.com.uy" vs "babencopropiedades.com.ar").
+func sameBrand(a, b string) bool {
+	if a == "" || b == "" {
+		return false
+	}
+	if a == b {
+		return true
+	}
+	la, lb := strings.SplitN(a, ".", 2)[0], strings.SplitN(b, ".", 2)[0]
+	return len(la) >= 6 && la == lb
 }
 
 func absURL(base, ref string) string {

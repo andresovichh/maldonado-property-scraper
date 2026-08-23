@@ -30,7 +30,7 @@ func main() {
 	var (
 		scanFile      = flag.String("scan", "out/scan.json", "scanner output to take the agency list from")
 		outFile       = flag.String("out", "out/listings.json", "where to write normalised listings")
-		types         = flag.String("types", "casas", "comma-separated property types to crawl")
+		types         = flag.String("types", "casas,apartamentos,chacras", "comma-separated property types to crawl")
 		operation     = flag.String("operation", "alquiler", "alquiler | venta")
 		workers       = flag.Int("workers", 8, "agencies crawled in parallel")
 		delay         = flag.Duration("delay", 1200*time.Millisecond, "minimum delay between requests to the same host")
@@ -67,6 +67,7 @@ func main() {
 		mu        sync.Mutex
 		listings  []*model.Listing
 		truncated []string
+		empty     []string
 		stats     = map[string]int{}
 	)
 
@@ -105,6 +106,13 @@ func main() {
 			// A cap that silently trims inventory reads exactly like an agency that
 			// simply has less — say it out loud instead.
 			note := ""
+			if len(got) == 0 {
+				// An agency the scanner confirmed has inventory returning nothing is
+				// a bug on our side, not an empty agency. Name it instead of folding
+				// it into a total nobody reads.
+				note = "  ← 0, revisar"
+				empty = append(empty, a.Domain)
+			}
 			if len(got) >= *maxPerSite {
 				note = "  ⚠ TRUNCADA por -max-per-site"
 				truncated = append(truncated, a.Domain)
@@ -135,6 +143,10 @@ func main() {
 		if stats[k] > 0 {
 			fmt.Printf("  %-22s %4d\n", k, stats[k])
 		}
+	}
+	if len(empty) > 0 {
+		fmt.Printf("\n%d agencias con inventario confirmado devolvieron 0 listings:\n   %s\n",
+			len(empty), strings.Join(empty, ", "))
 	}
 	if len(truncated) > 0 {
 		fmt.Printf("\n⚠ %d agencias truncadas en %d listings — subí -max-per-site para completarlas:\n   %s\n",
@@ -187,10 +199,34 @@ func crawlAgency(ctx context.Context, t *scraper.Tera, a agency, types []string,
 	seen := map[string]bool{}
 
 	for _, pt := range types {
-		// periodo=17 asks the site for annual rentals. Some sites honour it, some
-		// ignore it; either way the price table decides, so this is only a saving.
-		idx := scraper.ListingIndexURL(a.Base, pt, operation, scraper.PeriodoAnual)
-		found, err := t.DetailURLs(ctx, idx, maxPages)
+		// No periodo filter. Asking the site for annual rentals (periodo=17) looked
+		// like a free saving — the price table decides the operation anyway — but it
+		// empties the index outright on part of the family: cristinanaum returns 0
+		// with the filter and 12 without, sader 0 versus 16. An optimisation that
+		// costs inventory is not an optimisation.
+		idx := scraper.ListingIndexURL(a.Base, pt, operation, 0)
+
+		// The index fetch is the single point of failure for a whole agency: one
+		// timeout here and every property behind it is lost, silently counted as
+		// "agencia con error". bhpropiedades went from 245 listings to zero on one
+		// flaky request. Detail fetches can afford to fail individually; this one
+		// gets retried.
+		var (
+			found []string
+			err   error
+		)
+		for attempt := range 3 {
+			if attempt > 0 {
+				select {
+				case <-time.After(time.Duration(attempt) * 2 * time.Second):
+				case <-ctx.Done():
+					return nil, ctx.Err()
+				}
+			}
+			if found, err = t.DetailURLs(ctx, idx, maxPages); err == nil {
+				break
+			}
+		}
 		if err != nil {
 			continue
 		}

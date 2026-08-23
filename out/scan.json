@@ -275,10 +275,19 @@
     "engine": "custom",
     "developer": "sierra",
     "signals": [
-      "sierra-footer"
+      "sierra-footer",
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.inmobiliariacolmena.com.uy/apartamentos/en-venta/",
+      "https://www.inmobiliariacolmena.com.uy/casas/en-venta/",
+      "https://www.inmobiliariacolmena.com.uy/apartamentos/en-alquiler/"
     ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 20
   },
   {
     "agency": {
@@ -435,8 +444,19 @@
     "status_code": 200,
     "final_url": "https://www.jgprop.com.ar/",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.jgprop.com.ar/Propiedades",
+      "https://www.jgprop.com.ar/Venta",
+      "https://www.jgprop.com.ar/Casas"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 9
   },
   {
     "agency": {
@@ -456,7 +476,7 @@
     ],
     "requires_javascript": false,
     "has_inventory": true,
-    "listing_hits": 5
+    "listing_hits": 6
   },
   {
     "agency": {
@@ -499,7 +519,7 @@
     ],
     "requires_javascript": false,
     "has_inventory": true,
-    "listing_hits": 4
+    "listing_hits": 3
   },
   {
     "agency": {
@@ -630,8 +650,19 @@
     "status_code": 200,
     "final_url": "https://www.mirandabosch.com/",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.mirandabosch.com/residencial/departamentos-venta-recoleta-de-2-ambientes",
+      "https://www.mirandabosch.com/residencial/departamentos-venta-recoleta-de-3-ambientes",
+      "https://www.mirandabosch.com/residencial/departamentos-venta-recoleta-de-4-ambientes"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 22
   },
   {
     "agency": {
@@ -665,8 +696,19 @@
     "status_code": 200,
     "final_url": "https://www.org-acassuso.com.ar/",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.org-acassuso.com.ar/Venta",
+      "https://www.org-acassuso.com.ar/Alquiler",
+      "https://www.org-acassuso.com.ar/Propiedades"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 9
   },
   {
     "agency": {
@@ -681,7 +723,7 @@
     "status_code": 200,
     "final_url": "https://www.ottoinmobiliaria.com.uy/",
     "engine": "custom",
-    "requires_javascript": false,
+    "requires_javascript": true,
     "has_inventory": false
   },
   {
@@ -726,7 +768,7 @@
   {
     "agency": {
       "name": "PDE PROPIEDADES",
-      "domain": "pdepropiedades.com.",
+      "domain": "pdepropiedades.com",
       "website": "https://www.pdepropiedades.com.",
       "phone": "(+598) 4244 7669",
       "address": "Calle 29 entre Avda. Gorlero y Calle 20, local 11/12"
@@ -823,11 +865,22 @@
     "status_code": 200,
     "final_url": "https://www.puntaweb.com/index.htm",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.puntaweb.com/cgi-bin/propiedades/propiedad.pl?t=alquiler_Cruceros:_excepcional_apartamento_de_tres_suites_y_parrillero_propio_con_vista_al_mar_en_Pinares.\u0026ficha=A1768\u0026op=2\u0026lg=e",
+      "https://www.puntaweb.com/cgi-bin/propiedades/propiedad.pl?t=alquiler_Icon_Brava:_apartamento_de_tres_dormitorios_y_dos_banos_en_edificio_con_excelentes_amenidades_a_cien_metros_de_la_playa_Brava.\u0026ficha=A1665\u0026op=2\u0026lg=e",
+      "https://www.puntaweb.com/cgi-bin/propiedades/propiedad.pl?t=alquiler_Tiburon_3:_excepcional_apartamento_de_tres_suites_mas_dependencia_en_piso_alto_frente_a_playa_Brava.\u0026ficha=A1773\u0026op=2\u0026lg=e"
+    ],
     "sitemaps": [
       "https://www.puntaweb.com/sitemap.xml"
     ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 27
   },
   {
     "agency": {
@@ -873,8 +926,19 @@
     "status_code": 200,
     "final_url": "https://www.saracafardopropiedades.com/",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.saracafardopropiedades.com/Propiedades",
+      "https://www.saracafardopropiedades.com/Venta",
+      "https://www.saracafardopropiedades.com/Alquiler"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 36
   },
   {
     "agency": {
@@ -889,8 +953,19 @@
     "status_code": 200,
     "final_url": "https://www.sorsap.com.uy",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.sorsap.com.uy/propiedades/Alquiler/U$S/Sin_precio_m%C3%ADnimo/Sin_precio_m%C3%A1ximo/Todos_los_tipos/Todas_las_zonas",
+      "https://www.sorsap.com.uy/propiedades/Venta/U$S/Sin_precio_m%C3%ADnimo/Sin_precio_m%C3%A1ximo/Todos_los_tipos/Todas_las_zonas",
+      "https://www.sorsap.com.uy/propiedad/142"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 18
   },
   {
     "agency": {
@@ -935,8 +1010,19 @@
     "status_code": 200,
     "final_url": "https://www.vistaazul.com.uy/",
     "engine": "custom",
+    "signals": [
+      "index-via-nav",
+      "index-via-nav",
+      "index-via-nav"
+    ],
+    "property_pages": [
+      "https://www.vistaazul.com.uy/Venta",
+      "https://www.vistaazul.com.uy/Alquiler",
+      "https://www.vistaazul.com.uy/Apartamentos"
+    ],
     "requires_javascript": false,
-    "has_inventory": false
+    "has_inventory": true,
+    "listing_hits": 7
   },
   {
     "agency": {
@@ -1792,6 +1878,33 @@
   },
   {
     "agency": {
+      "name": "INMOBILIARIA VERONA PUNTA",
+      "domain": "veronapunta.com",
+      "website": "http://www.veronapunta.com/",
+      "email": "info@veronapunta.com",
+      "phone": "+59842449687",
+      "address": "Calle 21 y Gorlero Ed. Torre Verona Local 028"
+    },
+    "reachable": true,
+    "status_code": 200,
+    "final_url": "https://www.veronapunta.com/",
+    "engine": "tera",
+    "developer": "sierra",
+    "signals": [
+      "ri.com.uy-images",
+      "sierra-footer",
+      "tera.com.uy-link"
+    ],
+    "property_pages": [
+      "https://www.veronapunta.com/",
+      "https://www.veronapunta.com/casas/en-alquiler/"
+    ],
+    "requires_javascript": false,
+    "has_inventory": true,
+    "listing_hits": 12
+  },
+  {
+    "agency": {
       "name": "INMOBILIARIA VISTANET",
       "domain": "vistanet.uy",
       "website": "https://www.vistanet.uy",
@@ -2608,11 +2721,12 @@
       "tera.com.uy-link"
     ],
     "property_pages": [
-      "https://www.shirleycor.com/"
+      "https://www.shirleycor.com/",
+      "https://www.shirleycor.com/casas/en-alquiler/"
     ],
     "requires_javascript": false,
     "has_inventory": true,
-    "listing_hits": 4
+    "listing_hits": 18
   },
   {
     "agency": {
@@ -2644,7 +2758,7 @@
   {
     "agency": {
       "name": "TAMBOLINI PROPIEDADES",
-      "domain": "tambolini.com.",
+      "domain": "tambolini.com",
       "website": "http://www.tambolini.com.",
       "email": "contacto@tambolini.com",
       "address": "(+598)42264779/ (+598) 98 068 582"
@@ -2907,21 +3021,6 @@
     },
     "reachable": false,
     "error": "agency has no website",
-    "engine": "unknown",
-    "requires_javascript": false,
-    "has_inventory": false
-  },
-  {
-    "agency": {
-      "name": "INMOBILIARIA VERONA PUNTA",
-      "domain": "veronapunta.com",
-      "website": "http://www.veronapunta.com/",
-      "email": "info@veronapunta.com",
-      "phone": "+59842449687",
-      "address": "Calle 21 y Gorlero Ed. Torre Verona Local 028"
-    },
-    "reachable": false,
-    "error": "Get \"http://www.veronapunta.com/\": dial tcp: lookup www.veronapunta.com: i/o timeout",
     "engine": "unknown",
     "requires_javascript": false,
     "has_inventory": false

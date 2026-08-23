@@ -31,6 +31,7 @@ func main() {
 		top      = flag.Int("top", 20, "how many results to print")
 		why      = flag.Bool("why", false, "show the points breakdown per listing")
 		all      = flag.Bool("all", false, "include listings with no annual price (temporada, etc.)")
+		asJSON   = flag.Bool("json", false, "emit the ranked results as JSON instead of a table")
 	)
 	flag.Parse()
 
@@ -50,6 +51,28 @@ func main() {
 	p.BedroomsTarget, p.BathroomsTarget = *bedrooms, *baths
 
 	ranked := scoring.Rank(p, listings)
+
+	if *asJSON {
+		out := ranked
+		if !*all {
+			out = out[:0]
+			for _, s := range ranked {
+				if l := s.Listing; l.Operation != nil && *l.Operation == model.OperationRentAnnual {
+					out = append(out, s)
+				}
+			}
+		}
+		if *top > 0 && len(out) > *top {
+			out = out[:*top]
+		}
+		enc := json.NewEncoder(os.Stdout)
+		enc.SetIndent("", " ")
+		if err := enc.Encode(out); err != nil {
+			fmt.Fprintln(os.Stderr, "error:", err)
+			os.Exit(1)
+		}
+		return
+	}
 
 	fmt.Printf("%d listings · perfil: casa en alquiler anual, USD %.0f–%.0f (máx %.0f), %d dorm / %d baños\n\n",
 		len(listings), p.PriceMin, p.PriceMax, p.PriceSoftMax, p.BedroomsTarget, p.BathroomsTarget)

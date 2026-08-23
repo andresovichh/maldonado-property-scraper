@@ -168,3 +168,60 @@ func TestRiComUyAloneIsNotTera(t *testing.T) {
 		t.Error("ri.com.uy is not a strong signal")
 	}
 }
+
+func TestNavLinkHarvestPrefersAnchorText(t *testing.T) {
+	// The case that motivated this: a nav item reading "Propiedades" pointing at a
+	// path no guessed list would ever contain. Probing a fixed path list marked 51
+	// reachable agencies as having no inventory at all.
+	home := `<nav>
+	  <a href="/es/p/12">Propiedades</a>
+	  <a href="/quienes-somos">Nosotros</a>
+	  <a href="/blog/venta-2026">Vender en 2026</a>
+	  <a href="https://facebook.com/x">Propiedades en Facebook</a>
+	  <a href="/fotos/casa.jpg">Casas</a>
+	</nav>`
+
+	var got []string
+	for _, m := range reNavLink.FindAllStringSubmatch(home, -1) {
+		href, text := m[1], stripTags(m[2])
+		abs := absURL("https://x.com.uy/", href)
+		if HostOf(abs) != "x.com.uy" || reIndexSkip.MatchString(abs) || reIndexSkip.MatchString(text) {
+			continue
+		}
+		if reIndexWord.MatchString(text) || reIndexWord.MatchString(abs) {
+			got = append(got, abs)
+		}
+	}
+
+	if len(got) != 1 || got[0] != "https://x.com.uy/es/p/12" {
+		t.Errorf("got %v, want just the Propiedades link", got)
+	}
+}
+
+func TestListingHitsAcceptsAPriceGrid(t *testing.T) {
+	// babencopropiedades lists 22 prices on its rental index and never prints a
+	// bedroom count on the card. Demanding both signals scored a real inventory
+	// page at zero and lost the agency.
+	grid := strings.Repeat(`<div class="prop">USD 2.500</div>`, 12)
+	if got := listingHits(grid); got < 10 {
+		t.Errorf("listingHits(price grid) = %d, want >= 10", got)
+	}
+	// Prose about money still must not count.
+	prose := `<p>Vendimos por USD 5.000.000 en 2026, con operaciones de USD 1.200 a USD 3.400.</p>`
+	if got := listingHits(prose); got != 0 {
+		t.Errorf("listingHits(prose) = %d, want 0", got)
+	}
+}
+
+func TestSameBrandAcrossTLDs(t *testing.T) {
+	if !sameBrand("babencopropiedades.com.ar", "babencopropiedades.com.uy") {
+		t.Error("same agency on another TLD should count")
+	}
+	if sameBrand("facebook.com", "gary.uy") {
+		t.Error("unrelated hosts must not count")
+	}
+	// Short labels are too collision-prone to trust.
+	if sameBrand("casa.com.ar", "casa.com.uy") {
+		t.Error("short shared labels must not count")
+	}
+}
