@@ -260,12 +260,15 @@ func Currency(sym string) string {
 var (
 	reAnual    = regexp.MustCompile(`(?i)\banual\b`)
 	reInvernal = regexp.MustCompile(`(?i)\binvernal\b`)
+	reVenta    = regexp.MustCompile(`(?i)\bventa\b`)
 	reSeason   = regexp.MustCompile(`(?i)(temporada|quincena|enero|febrero|marzo|diciembre|carnaval|semana santa|reveion|reveill?on)`)
 )
 
 // PeriodOperation classifies one row of the price table by its period label.
 func PeriodOperation(period string) string {
 	switch {
+	case reVenta.MatchString(period):
+		return model.OperationSale
 	case reAnual.MatchString(period):
 		return model.OperationRentAnnual
 	case reInvernal.MatchString(period):
@@ -289,6 +292,39 @@ func AnnualPrice(prices []model.PeriodPrice) (model.PeriodPrice, bool) {
 		}
 	}
 	return model.PeriodPrice{}, false
+}
+
+// SalePriceOf picks the sale price out of a price table.
+func SalePriceOf(prices []model.PeriodPrice) (model.PeriodPrice, bool) {
+	for _, p := range prices {
+		if PeriodOperation(p.Period) == model.OperationSale && p.Amount > 0 {
+			return p, true
+		}
+	}
+	return model.PeriodPrice{}, false
+}
+
+// reSaleText catches "Venta: U$S 1.350.000" loose in the page prose (amarras
+// style, where the sale price is not a table row).
+var reSaleText = regexp.MustCompile(`(?i)\bventa\b[^\d\n]{0,20}(U\$S|USD|US\$|\$US)\s*([\d][\d.,]*)`)
+
+// SaleFromText reads the first own-listing sale price out of the visible text.
+// Everything after "propiedades relacionadas" is another listing's price, so the
+// text is cut there first. Amounts under 10.000 are noise, not sale prices.
+func SaleFromText(text string) (float64, bool) {
+	low := strings.ToLower(text)
+	if i := strings.Index(low, "relacionad"); i >= 0 {
+		text = text[:i]
+	}
+	m := reSaleText.FindStringSubmatch(text)
+	if m == nil {
+		return 0, false
+	}
+	amount, ok := ParseAmount(m[2])
+	if !ok || amount < 10000 {
+		return 0, false
+	}
+	return amount, true
 }
 
 // PropertyType maps the family's URL segment / label to a canonical type.

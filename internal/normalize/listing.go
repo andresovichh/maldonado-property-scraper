@@ -55,15 +55,34 @@ func FromRaw(r *model.RawListing) *model.Listing {
 	// Operation and price come from the price table, not from the URL. A listing
 	// sitting under /casas/en-alquiler/ is often temporada only; calling that an
 	// annual rental is the single most misleading thing this scraper could do.
+	if p, ok := SalePriceOf(l.PeriodPrices); ok {
+		l.SalePrice = model.Float(p.Amount)
+	} else if a, ok := SaleFromText(text); ok {
+		l.SalePrice = model.Float(a)
+	}
 	if p, ok := AnnualPrice(l.PeriodPrices); ok {
 		l.Operation = model.Str(model.OperationRentAnnual)
 		l.Currency = model.Str(p.Currency)
 		l.Price = model.Float(p.Amount)
-	} else if len(l.PeriodPrices) > 0 {
+	} else if hasRentRow(l.PeriodPrices) {
 		l.Operation = model.Str(model.OperationRentSeason)
+	} else if l.SalePrice != nil {
+		// Venta pura: sin filas de alquiler y con precio de venta.
+		l.Operation = model.Str(model.OperationSale)
+		l.Currency = model.Str("USD")
+		l.Price = l.SalePrice
 	}
 
 	return l
+}
+
+func hasRentRow(prices []model.PeriodPrice) bool {
+	for _, p := range prices {
+		if PeriodOperation(p.Period) != model.OperationSale {
+			return true
+		}
+	}
+	return false
 }
 
 // periodPrices reads the price rows back out of the raw map, tolerating both the

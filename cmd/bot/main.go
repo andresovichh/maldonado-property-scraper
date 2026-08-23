@@ -276,18 +276,28 @@ func filter(sp *spec) ([]*model.Listing, int) {
 	}
 	var out []scored
 	for _, l := range listings {
-		if !opMatches(sp.Operation, l.Operation) {
+		wantSale := sp.Operation == "sale"
+		if wantSale {
+			// contradicción conocida: opera como alquiler y no tiene precio de venta
+			if l.SalePrice == nil && l.Operation != nil && *l.Operation != model.OperationSale {
+				continue
+			}
+		} else if !opMatches(sp.Operation, l.Operation) {
 			continue
 		}
 		if sp.PropertyType != "" && sp.PropertyType != "any" &&
 			l.PropertyType != nil && *l.PropertyType != sp.PropertyType {
 			continue
 		}
-		if l.Price != nil {
-			if sp.PriceMax > 0 && *l.Price > sp.PriceMax*1.25 {
+		price := l.Price
+		if wantSale && l.SalePrice != nil {
+			price = l.SalePrice
+		}
+		if price != nil {
+			if sp.PriceMax > 0 && *price > sp.PriceMax*1.25 {
 				continue
 			}
-			if sp.PriceMin > 0 && *l.Price < sp.PriceMin*0.75 {
+			if sp.PriceMin > 0 && *price < sp.PriceMin*0.75 {
 				continue
 			}
 		}
@@ -300,7 +310,7 @@ func filter(sp *spec) ([]*model.Listing, int) {
 			continue
 		}
 		s := 0
-		if l.Price != nil {
+		if l.Price != nil || l.SalePrice != nil {
 			s += 3
 		}
 		if l.Bedrooms != nil {
@@ -368,6 +378,9 @@ func compact(i int, l *model.Listing) string {
 			cur = *l.Currency
 		}
 		p = append(p, fmt.Sprintf("%s %.0f", cur, *l.Price))
+	}
+	if l.SalePrice != nil && (l.Price == nil || l.Price != l.SalePrice) {
+		p = append(p, fmt.Sprintf("venta USD %.0f", *l.SalePrice))
 	}
 	if l.Bedrooms != nil {
 		p = append(p, fmt.Sprintf("%dd", *l.Bedrooms))

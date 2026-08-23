@@ -37,4 +37,25 @@ func TestFilter(t *testing.T) {
 	if !strings.Contains(compact(1, listings[0]), "venta") {
 		t.Fatal("compact sin operación")
 	}
+
+	// mixta: se alquila (rent_annual) pero también se vende → matchea "sale"
+	// y el precio que se compara es el de venta, no el alquiler mensual.
+	mu.Lock()
+	listings = append(listings, &model.Listing{URL: "mix",
+		Operation: model.Str(model.OperationRentAnnual),
+		Price:     model.Float(2500), SalePrice: model.Float(180000)})
+	mu.Unlock()
+	got, _ = filter(&spec{Operation: "sale", PriceMax: 200000})
+	found := false
+	for _, l := range got {
+		if l.URL == "mix" {
+			found = true
+		}
+	}
+	if !found {
+		t.Fatal("la mixta con SalePrice no matcheó venta")
+	}
+	if !strings.Contains(compact(1, listings[len(listings)-1]), "venta USD 180000") {
+		t.Fatal("compact sin precio de venta")
+	}
 }

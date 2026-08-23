@@ -69,6 +69,8 @@ type Listing struct {
 	// PeriodPrices and must never be mistaken for it: a January price of USD 10.000
 	// is not a monthly rent.
 	Price *float64 `json:"price,omitempty"`
+	// SalePrice is set when the page also (or only) offers the property for sale.
+	SalePrice *float64 `json:"sale_price,omitempty"`
 
 	PeriodPrices []PeriodPrice `json:"period_prices,omitempty"`
 

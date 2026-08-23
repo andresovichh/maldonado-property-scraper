@@ -250,7 +250,7 @@ func VisibleText(body string) string {
 // currency and an amount.
 var rePriceRow = regexp.MustCompile(
 	`(?i)((?:1[ªa]?|2[ªa]?|1er|2da)?\s*(?:Quin\.?|Quincena)?\s*` +
-		`(?:Enero|Febrero|Marzo|Diciembre|Anual|Invernal|Carnaval|Semana\s+Santa|Reveion|Reveill?on)` +
+		`(?:Enero|Febrero|Marzo|Diciembre|Anual|Invernal|Venta|Carnaval|Semana\s+Santa|Reveion|Reveill?on)` +
 		`(?:\s*(?:en|\()?\s*(?:D[oó]lares|Pesos)\)?)?)\s*:?\s*(U\$S|USD|US\$|\$US|\$)\s*([\d][\d.,]*)`)
 
 // ParsePriceTable reads the per-period rental prices.
@@ -267,6 +267,11 @@ func ParsePriceTable(text string) []model.PeriodPrice {
 		if len(scope) > 1200 {
 			scope = scope[:1200]
 		}
+	}
+	// Never read prices out of the "propiedades relacionadas" block: those are
+	// other listings' numbers (a neighbour's sale price on a rental page).
+	if i := strings.Index(strings.ToLower(scope), "relacionad"); i >= 0 {
+		scope = scope[:i]
 	}
 
 	var out []model.PeriodPrice

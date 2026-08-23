@@ -56,6 +56,8 @@ func TestAnnualPriceIgnoresZeroSentinel(t *testing.T) {
 
 func TestPeriodOperation(t *testing.T) {
 	cases := map[string]string{
+		"Venta":              model.OperationSale,
+		"Venta (Dólares)":    model.OperationSale,
 		"Anual":              model.OperationRentAnnual,
 		"Anual en Dólares":   model.OperationRentAnnual,
 		"Anual (Dólares)":    model.OperationRentAnnual,
