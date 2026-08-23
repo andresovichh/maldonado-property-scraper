@@ -217,6 +217,7 @@ Esquema (omití o poné null/0/[] lo que la consulta no diga):
 {
  "operation": "rent_annual" | "rent_season" | "rent_winter" | "sale" | "rent_any" | "any",
  "property_type": "house" | "apartment" | "chacra" | "field" | "land" | "commercial" | "any",
+   (galpón, depósito, local, oficina → "commercial")
  "price_min": número (USD),
  "price_max": número (USD; "200 mil" = 200000),
  "bedrooms": número,
@@ -304,8 +305,8 @@ func filter(sp *spec) ([]*model.Listing, int) {
 		if sp.Bedrooms > 0 && l.Bedrooms != nil && abs(*l.Bedrooms-sp.Bedrooms) > 1 {
 			continue
 		}
-		blob := strings.ToLower(join(l.City) + " " + join(l.Neighborhood) + " " +
-			join(l.Title) + " " + join(l.Description))
+		blob := strings.ToLower(join(l.Department) + " " + join(l.City) + " " +
+			join(l.Neighborhood) + " " + join(l.Title) + " " + join(l.Description))
 		if len(sp.Zones) > 0 && !containsAny(blob, sp.Zones) {
 			continue
 		}

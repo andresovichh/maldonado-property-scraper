@@ -30,7 +30,7 @@ func main() {
 	var (
 		scanFile      = flag.String("scan", "out/scan.json", "scanner output to take the agency list from")
 		outFile       = flag.String("out", "out/listings.json", "where to write normalised listings")
-		types         = flag.String("types", "casas,apartamentos,chacras", "comma-separated property types to crawl")
+		types         = flag.String("types", "casas,apartamentos,chacras,locales,terrenos", "comma-separated property types to crawl")
 		operation     = flag.String("operation", "alquiler", "alquiler | venta")
 		workers       = flag.Int("workers", 8, "agencies crawled in parallel")
 		delay         = flag.Duration("delay", 1200*time.Millisecond, "minimum delay between requests to the same host")
