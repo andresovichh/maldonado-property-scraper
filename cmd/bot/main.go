@@ -223,6 +223,7 @@ Esquema (omití o poné null/0/[] lo que la consulta no diga):
  "bedrooms": número,
  "bathrooms": número,
  "zones": ["barrios o zonas mencionadas, en minúsculas"],
+   (TODA la base es del departamento de Maldonado: si dicen solo "Maldonado" o "en Maldonado" como región general, NO lo pongas en zones — dejalo vacío. Ponelo solo si claramente es la ciudad: "Maldonado centro", "ciudad de Maldonado". Punta del Este, La Barra, San Carlos, etc. sí son zones.)
  "keywords": ["otras características pedidas: piscina, garaje, parrillero, losa radiante, vista al mar, ..."]
 }
 
