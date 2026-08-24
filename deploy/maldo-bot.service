@@ -6,6 +6,7 @@ After=network-online.target
 WorkingDirectory=/root/2026/maldonado-property-scraper
 EnvironmentFile=/root/2026/18_facturas_bot/.env
 EnvironmentFile=/root/2026/maldonado-property-scraper/.env
+Environment=HOME=/root
 ExecStart=/root/2026/maldonado-property-scraper/bin/maldo-bot
 Restart=always
 RestartSec=5
