@@ -604,6 +604,7 @@ func runCrawl(chat string) {
 		{"run", "./cmd/crawl", "-out", "out/listings.json"},
 		{"run", "./cmd/crawl", "-operation", "venta", "-out", "out/listings-venta.json"},
 		{"run", "./cmd/infocasas", "-out", "out/listings-infocasas.json"},
+		{"run", "./cmd/mercadolibre", "-out", "out/listings-meli.json"},
 	} {
 		cmd := exec.Command("go", args...)
 		out, err := cmd.CombinedOutput()

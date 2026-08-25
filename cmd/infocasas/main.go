@@ -56,7 +56,7 @@ func main() {
 	seen := map[int64]bool{}
 	var all []*model.Listing
 	for _, sec := range sections {
-		pages := 0
+		pages, sinNuevos := 0, 0
 		for page := 1; ; page++ {
 			url := base + sec.path
 			if page > 1 {
@@ -67,6 +67,7 @@ func main() {
 				fmt.Fprintf(os.Stderr, "%s: %v (corto la sección)\n", url, err)
 				break
 			}
+			nuevos := 0
 			for _, it := range sf.Data {
 				// Si la URL cae en una búsqueda genérica (slug inválido), llegan
 				// avisos de todo el país: el departamento del item es la verdad.
@@ -78,6 +79,17 @@ func main() {
 				}
 				seen[it.ID] = true
 				all = append(all, toListing(it, sec.operation, sec.ptype))
+				nuevos++
+			}
+			// Pasadas ~15 páginas seguidas sin nada nuevo, el resto es relleno
+			// repetido: cortar ahorra cientos de requests por sección.
+			if nuevos == 0 {
+				if sinNuevos++; sinNuevos >= 15 {
+					fmt.Fprintf(os.Stderr, "%s: 15 páginas sin avisos nuevos, corto\n", sec.path)
+					break
+				}
+			} else {
+				sinNuevos = 0
 			}
 			pages++
 			fmt.Fprintf(os.Stderr, "%s p%d/%d (%d avisos)\n",
