@@ -33,9 +33,12 @@ const (
 )
 
 var (
-	tgToken     = mustEnv("TELEGRAM_TOKEN")
-	apiKey      = mustEnv("ANTHROPIC_API_KEY")
-	allowedChat = envOr("ALLOWED_CHAT", "610787415")
+	tgToken = mustEnv("TELEGRAM_TOKEN")
+	apiKey  = mustEnv("ANTHROPIC_API_KEY")
+	// ALLOWED_CHAT: ids de chat autorizados, separados por coma. El primero es
+	// el dueño: recibe los avisos del crawl diario.
+	allowedChats = strings.Split(envOr("ALLOWED_CHAT", "610787415"), ",")
+	ownerChat    = strings.TrimSpace(allowedChats[0])
 
 	httpc = &http.Client{Timeout: 120 * time.Second}
 
@@ -43,7 +46,7 @@ var (
 	listings []*model.Listing
 
 	histMu sync.Mutex
-	hist   []string // últimas consultas del único chat, para resolver «pero de esas…»
+	hist   = map[string][]string{} // últimas consultas por chat, para resolver «pero de esas…»
 
 	crawlMu sync.Mutex // one crawl at a time
 )
@@ -63,11 +66,20 @@ func envOr(k, def string) string {
 	return def
 }
 
+func chatAllowed(chat string) bool {
+	for _, c := range allowedChats {
+		if strings.TrimSpace(c) == chat {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	if err := reload(); err != nil {
 		log.Fatalf("cargando listings: %v", err)
 	}
-	log.Printf("bot arriba: %d listings, chat autorizado %s", count(), allowedChat)
+	log.Printf("bot arriba: %d listings, chats autorizados %v", count(), allowedChats)
 
 	go dailyCrawl()
 
@@ -85,7 +97,7 @@ func main() {
 				continue
 			}
 			chat := fmt.Sprint(u.Message.Chat.ID)
-			if chat != allowedChat {
+			if !chatAllowed(chat) {
 				log.Printf("ignorado chat no autorizado %s (%q)", chat, u.Message.Text)
 				continue
 			}
@@ -161,7 +173,7 @@ func handle(chat, text string) {
 	switch {
 	case text == "/start" || text == "/help":
 		histMu.Lock()
-		hist = nil
+		delete(hist, chat)
 		histMu.Unlock()
 		send(chat, "Buscador de propiedades de Maldonado.\n\n"+
 			"Escribime la búsqueda en lenguaje natural, por ejemplo:\n"+
@@ -241,8 +253,8 @@ Podés recibir CONSULTAS ANTERIORES como contexto. Si la CONSULTA ACTUAL las ref
 
 func answer(chat, query string) {
 	typing(chat)
-	sp, err := parseQuery(withHist(query))
-	remember(query)
+	sp, err := parseQuery(withHist(chat, query))
+	remember(chat, query)
 	if err != nil {
 		send(chat, "No pude interpretar la consulta: "+err.Error())
 		return
@@ -279,23 +291,25 @@ func answer(chat, query string) {
 
 // withHist antepone las consultas anteriores para que Haiku #1 resuelva
 // refinamientos («pero solo las de manantiales») sobre la búsqueda previa.
-func withHist(q string) string {
+func withHist(chat, q string) string {
 	histMu.Lock()
 	defer histMu.Unlock()
-	if len(hist) == 0 {
+	h := hist[chat]
+	if len(h) == 0 {
 		return q
 	}
 	return "CONSULTAS ANTERIORES (de más vieja a más nueva):\n- " +
-		strings.Join(hist, "\n- ") + "\n\nCONSULTA ACTUAL: " + q
+		strings.Join(h, "\n- ") + "\n\nCONSULTA ACTUAL: " + q
 }
 
-func remember(q string) {
+func remember(chat, q string) {
 	histMu.Lock()
 	defer histMu.Unlock()
-	hist = append(hist, q)
-	if len(hist) > 6 {
-		hist = hist[len(hist)-6:]
+	h := append(hist[chat], q)
+	if len(h) > 6 {
+		h = h[len(h)-6:]
 	}
+	hist[chat] = h
 }
 
 func parseQuery(q string) (*spec, error) {
@@ -629,7 +643,7 @@ func dailyCrawl() {
 		day := now.Format("2006-01-02")
 		if now.Hour() == crawlHour && day != last {
 			last = day
-			runCrawl(allowedChat)
+			runCrawl(ownerChat)
 		}
 	}
 }
