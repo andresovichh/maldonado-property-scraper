@@ -603,6 +603,7 @@ func runCrawl(chat string) {
 	for _, args := range [][]string{
 		{"run", "./cmd/crawl", "-out", "out/listings.json"},
 		{"run", "./cmd/crawl", "-operation", "venta", "-out", "out/listings-venta.json"},
+		{"run", "./cmd/infocasas", "-out", "out/listings-infocasas.json"},
 	} {
 		cmd := exec.Command("go", args...)
 		out, err := cmd.CombinedOutput()
