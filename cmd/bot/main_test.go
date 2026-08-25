@@ -34,6 +34,14 @@ func TestFilter(t *testing.T) {
 		t.Fatalf("zona mal: %d resultados", len(got))
 	}
 
+	// exclusión de zona: «que no digan pinares» saca la de Pinares
+	got, _ = filter(&spec{Operation: "sale", ExcludeZones: []string{"pinares"}})
+	for _, l := range got {
+		if l.URL == "a" {
+			t.Fatal("exclude_zones no excluyó la de Pinares")
+		}
+	}
+
 	if !strings.Contains(compact(1, listings[0]), "venta") {
 		t.Fatal("compact sin operación")
 	}

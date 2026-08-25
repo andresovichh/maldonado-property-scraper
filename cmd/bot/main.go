@@ -42,6 +42,9 @@ var (
 	mu       sync.RWMutex
 	listings []*model.Listing
 
+	histMu sync.Mutex
+	hist   []string // últimas consultas del único chat, para resolver «pero de esas…»
+
 	crawlMu sync.Mutex // one crawl at a time
 )
 
@@ -157,6 +160,9 @@ func typing(chat string) {
 func handle(chat, text string) {
 	switch {
 	case text == "/start" || text == "/help":
+		histMu.Lock()
+		hist = nil
+		histMu.Unlock()
 		send(chat, "Buscador de propiedades de Maldonado.\n\n"+
 			"Escribime la búsqueda en lenguaje natural, por ejemplo:\n"+
 			"«casa en alquiler anual, 3 dormitorios, hasta 3000 dólares, con piscina»\n"+
@@ -208,6 +214,7 @@ type spec struct {
 	Bedrooms     int      `json:"bedrooms"`
 	Bathrooms    int      `json:"bathrooms"`
 	Zones        []string `json:"zones"`
+	ExcludeZones []string `json:"exclude_zones"`
 	Keywords     []string `json:"keywords"`
 }
 
@@ -223,15 +230,19 @@ Esquema (omití o poné null/0/[] lo que la consulta no diga):
  "bedrooms": número,
  "bathrooms": número,
  "zones": ["barrios o zonas mencionadas, en minúsculas"],
+ "exclude_zones": ["zonas que pide EXCLUIR («que no sea…», «que no digan…», «menos…»), en minúsculas"],
    (TODA la base es del departamento de Maldonado: si dicen solo "Maldonado" o "en Maldonado" como región general, NO lo pongas en zones — dejalo vacío. Ponelo solo si claramente es la ciudad: "Maldonado centro", "ciudad de Maldonado". Punta del Este, La Barra, San Carlos, etc. sí son zones.)
  "keywords": ["otras características pedidas: piscina, garaje, parrillero, losa radiante, vista al mar, ..."]
 }
 
-"alquiler" sin más contexto = "rent_any". Si piden alquiler y el precio suena mensual, dejalo tal cual (los precios de la base son mensuales para alquiler anual).`
+"alquiler" sin más contexto = "rent_any". Si piden alquiler y el precio suena mensual, dejalo tal cual (los precios de la base son mensuales para alquiler anual).
+
+Podés recibir CONSULTAS ANTERIORES como contexto. Si la CONSULTA ACTUAL las refina («pero de esas…», «solo las de…», «sacame las de…»), devolvé el JSON de la búsqueda COMBINADA (filtros anteriores + el refinamiento). Si es una búsqueda nueva independiente, ignorá el contexto. Pase lo que pase respondé SOLO el JSON.`
 
 func answer(chat, query string) {
 	typing(chat)
-	sp, err := parseQuery(query)
+	sp, err := parseQuery(withHist(query))
+	remember(query)
 	if err != nil {
 		send(chat, "No pude interpretar la consulta: "+err.Error())
 		return
@@ -248,6 +259,27 @@ func answer(chat, query string) {
 		return
 	}
 	send(chat, reply)
+}
+
+// withHist antepone las consultas anteriores para que Haiku #1 resuelva
+// refinamientos («pero solo las de manantiales») sobre la búsqueda previa.
+func withHist(q string) string {
+	histMu.Lock()
+	defer histMu.Unlock()
+	if len(hist) == 0 {
+		return q
+	}
+	return "CONSULTAS ANTERIORES (de más vieja a más nueva):\n- " +
+		strings.Join(hist, "\n- ") + "\n\nCONSULTA ACTUAL: " + q
+}
+
+func remember(q string) {
+	histMu.Lock()
+	defer histMu.Unlock()
+	hist = append(hist, q)
+	if len(hist) > 6 {
+		hist = hist[len(hist)-6:]
+	}
 }
 
 func parseQuery(q string) (*spec, error) {
@@ -311,6 +343,9 @@ func filter(sp *spec) ([]*model.Listing, int) {
 		if len(sp.Zones) > 0 && !containsAny(blob, sp.Zones) {
 			continue
 		}
+		if len(sp.ExcludeZones) > 0 && containsAny(blob, sp.ExcludeZones) {
+			continue
+		}
 		s := 0
 		if l.Price != nil || l.SalePrice != nil {
 			s += 3
@@ -358,7 +393,7 @@ func rankAndAnswer(query string, sp *spec, cands []*model.Listing, total int) (s
 		"Los CANDIDATOS son el resultado de tu propia búsqueda: nunca hables de 'el filtro', 'los que me pasaron' ni de terceros — es tu base y tu criterio. " +
 		"Si nada calza, decilo directo y sugerí cómo reformular la búsqueda. " +
 		"Recomendá como máximo 10 propiedades de los CANDIDATOS, las que mejor calcen con la consulta — incluso si se pasan un poco de precio, avisándolo. " +
-		"Por cada una: precio, lo esencial, por qué la elegiste y su URL en línea aparte. " +
+		"Por cada una: precio, lo esencial, por qué la elegiste y su URL en línea aparte. Nunca repitas la misma propiedad/URL. " +
 		"Los precios de alquiler son mensuales en USD salvo que se indique otra cosa. " +
 		"Terminá con una línea de resumen. Español rioplatense, directo, sin markdown (Telegram texto plano)."
 	return anthropic(sys, sb.String(), 2000)
