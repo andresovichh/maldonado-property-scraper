@@ -248,6 +248,22 @@ func answer(chat, query string) {
 		return
 	}
 	cands, total := filter(sp)
+	if ml := meliSearch(sp); len(ml) > 0 {
+		seen := make(map[string]bool, len(cands))
+		for _, l := range cands {
+			seen[l.URL] = true
+		}
+		for _, l := range ml {
+			if !seen[l.URL] && passes(sp, l) {
+				seen[l.URL] = true
+				cands = append(cands, l)
+				total++
+			}
+		}
+		if len(cands) > candidateCap {
+			cands = cands[:candidateCap]
+		}
+	}
 	if len(cands) == 0 {
 		send(chat, "Ninguna propiedad pasa esos filtros. Probá aflojando precio o zona (/stats para ver qué hay).")
 		return
@@ -310,42 +326,10 @@ func filter(sp *spec) ([]*model.Listing, int) {
 	}
 	var out []scored
 	for _, l := range listings {
-		wantSale := sp.Operation == "sale"
-		if wantSale {
-			// contradicción conocida: opera como alquiler y no tiene precio de venta
-			if l.SalePrice == nil && l.Operation != nil && *l.Operation != model.OperationSale {
-				continue
-			}
-		} else if !opMatches(sp.Operation, l.Operation) {
+		if !passes(sp, l) {
 			continue
 		}
-		if sp.PropertyType != "" && sp.PropertyType != "any" &&
-			l.PropertyType != nil && *l.PropertyType != sp.PropertyType {
-			continue
-		}
-		price := l.Price
-		if wantSale && l.SalePrice != nil {
-			price = l.SalePrice
-		}
-		if price != nil {
-			if sp.PriceMax > 0 && *price > sp.PriceMax*1.25 {
-				continue
-			}
-			if sp.PriceMin > 0 && *price < sp.PriceMin*0.75 {
-				continue
-			}
-		}
-		if sp.Bedrooms > 0 && l.Bedrooms != nil && abs(*l.Bedrooms-sp.Bedrooms) > 1 {
-			continue
-		}
-		blob := strings.ToLower(join(l.Department) + " " + join(l.City) + " " +
-			join(l.Neighborhood) + " " + join(l.Title) + " " + join(l.Description))
-		if len(sp.Zones) > 0 && !containsAny(blob, sp.Zones) {
-			continue
-		}
-		if len(sp.ExcludeZones) > 0 && containsAny(blob, sp.ExcludeZones) {
-			continue
-		}
+		blob := blobOf(l)
 		s := 0
 		if l.Price != nil || l.SalePrice != nil {
 			s += 3
@@ -370,6 +354,52 @@ func filter(sp *spec) ([]*model.Listing, int) {
 		res[i] = s.l
 	}
 	return res, total
+}
+
+// passes dice si un listing NO contradice el spec (campos desconocidos pasan).
+// Lo usan tanto la base local como los resultados de MercadoLibre.
+func passes(sp *spec, l *model.Listing) bool {
+	wantSale := sp.Operation == "sale"
+	if wantSale {
+		// contradicción conocida: opera como alquiler y no tiene precio de venta
+		if l.SalePrice == nil && l.Operation != nil && *l.Operation != model.OperationSale {
+			return false
+		}
+	} else if !opMatches(sp.Operation, l.Operation) {
+		return false
+	}
+	if sp.PropertyType != "" && sp.PropertyType != "any" &&
+		l.PropertyType != nil && *l.PropertyType != sp.PropertyType {
+		return false
+	}
+	price := l.Price
+	if wantSale && l.SalePrice != nil {
+		price = l.SalePrice
+	}
+	if price != nil {
+		if sp.PriceMax > 0 && *price > sp.PriceMax*1.25 {
+			return false
+		}
+		if sp.PriceMin > 0 && *price < sp.PriceMin*0.75 {
+			return false
+		}
+	}
+	if sp.Bedrooms > 0 && l.Bedrooms != nil && abs(*l.Bedrooms-sp.Bedrooms) > 1 {
+		return false
+	}
+	blob := blobOf(l)
+	if len(sp.Zones) > 0 && !containsAny(blob, sp.Zones) {
+		return false
+	}
+	if len(sp.ExcludeZones) > 0 && containsAny(blob, sp.ExcludeZones) {
+		return false
+	}
+	return true
+}
+
+func blobOf(l *model.Listing) string {
+	return strings.ToLower(join(l.Department) + " " + join(l.City) + " " +
+		join(l.Neighborhood) + " " + join(l.Title) + " " + join(l.Description))
 }
 
 func opMatches(want string, have *string) bool {
