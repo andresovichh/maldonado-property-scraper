@@ -600,6 +600,8 @@ func runCrawl(chat string) {
 	defer crawlMu.Unlock()
 	send(chat, "Crawleando (alquiler + venta, tarda varios minutos)…")
 	before := urlSet()
+	// Una fuente caída no aborta el resto: se avisa y se recarga lo que sí anduvo.
+	var fallas []string
 	for _, args := range [][]string{
 		{"run", "./cmd/crawl", "-out", "out/listings.json"},
 		{"run", "./cmd/crawl", "-operation", "venta", "-out", "out/listings-venta.json"},
@@ -608,9 +610,11 @@ func runCrawl(chat string) {
 		cmd := exec.Command("go", args...)
 		out, err := cmd.CombinedOutput()
 		if err != nil {
-			send(chat, fmt.Sprintf("Crawl falló (%v):\n%s", err, tail(string(out), 600)))
-			return
+			fallas = append(fallas, fmt.Sprintf("%s falló (%v):\n%s", args[1], err, tail(string(out), 400)))
 		}
+	}
+	for _, f := range fallas {
+		send(chat, "⚠️ "+f)
 	}
 	if err := reload(); err != nil {
 		send(chat, "Crawl ok pero falló la recarga: "+err.Error())
