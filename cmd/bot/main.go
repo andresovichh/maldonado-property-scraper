@@ -599,7 +599,10 @@ func runCrawl(chat string) {
 	}
 	defer crawlMu.Unlock()
 	send(chat, "Crawleando (alquiler + venta, tarda varios minutos)…")
-	before := urlSet()
+	// "Nuevas" contra el histórico acumulado de URLs, no contra el crawl
+	// anterior: una inmobiliaria que falla un día y vuelve al siguiente hacía
+	// reaparecer cientos de avisos viejos contados como "nuevos".
+	vistas := cargarVistas()
 	// Una fuente caída no aborta el resto: se avisa y se recarga lo que sí anduvo.
 	var fallas []string
 	for _, args := range [][]string{
@@ -622,12 +625,43 @@ func runCrawl(chat string) {
 	nuevos := 0
 	mu.RLock()
 	for _, l := range listings {
-		if !before[l.URL] {
+		if !vistas[l.URL] {
+			vistas[l.URL] = true
 			nuevos++
 		}
 	}
 	mu.RUnlock()
-	send(chat, fmt.Sprintf("Listo: %d propiedades cargadas, %d nuevas desde el último crawl.", count(), nuevos))
+	guardarVistas(vistas)
+	send(chat, fmt.Sprintf("Listo: %d propiedades cargadas, %d nunca vistas antes.", count(), nuevos))
+}
+
+// vistas.json: histórico acumulado de URLs conocidas, para que "nuevas"
+// signifique nuevas de verdad. Primera corrida (archivo ausente): se siembra
+// con lo que hay en memoria, así no reporta miles de "nuevas" falsas.
+func cargarVistas() map[string]bool {
+	b, err := os.ReadFile("out/vistas.json")
+	if err != nil {
+		return urlSet()
+	}
+	var urls []string
+	if json.Unmarshal(b, &urls) != nil {
+		return urlSet()
+	}
+	m := make(map[string]bool, len(urls))
+	for _, u := range urls {
+		m[u] = true
+	}
+	return m
+}
+
+func guardarVistas(m map[string]bool) {
+	urls := make([]string, 0, len(m))
+	for u := range m {
+		urls = append(urls, u)
+	}
+	sort.Strings(urls)
+	b, _ := json.Marshal(urls)
+	_ = os.WriteFile("out/vistas.json", b, 0644)
 }
 
 func urlSet() map[string]bool {
