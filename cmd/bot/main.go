@@ -260,6 +260,15 @@ func answer(chat, query string) {
 		return
 	}
 	cands, total := filter(sp)
+	aprox := false
+	if len(cands) == 0 && len(sp.Zones) > 0 {
+		rel := *sp
+		rel.Zones = palabrasPrincipales(sp.Zones)
+		if len(rel.Zones) > 0 {
+			cands, total = filter(&rel)
+			aprox = len(cands) > 0
+		}
+	}
 	if ml := meliSearch(sp); len(ml) > 0 {
 		seen := make(map[string]bool, len(cands))
 		for _, l := range cands {
@@ -281,6 +290,9 @@ func answer(chat, query string) {
 		return
 	}
 	typing(chat)
+	if aprox {
+		query += "\n\n[NOTA DEL SISTEMA: no hubo match exacto de la zona/edificio pedido; los candidatos matchean parcialmente el nombre. Aclarale al usuario que no encontraste exactamente lo que pidió y que esto es lo más parecido.]"
+	}
 	reply, err := rankAndAnswer(query, sp, cands, total)
 	if err != nil {
 		send(chat, "Error consultando el modelo: "+err.Error())
@@ -402,7 +414,7 @@ func passes(sp *spec, l *model.Listing) bool {
 		return false
 	}
 	blob := blobOf(l)
-	if len(sp.Zones) > 0 && !containsAny(blob, sp.Zones) {
+	if len(sp.Zones) > 0 && !zoneMatches(blob, sp.Zones) {
 		return false
 	}
 	if len(sp.ExcludeZones) > 0 && containsAny(blob, sp.ExcludeZones) {
@@ -703,6 +715,30 @@ func trunc(s string, n int) string {
 	return s[:n] + "…"
 }
 
+// zoneMatches: un término de zona matchea si TODAS sus palabras aparecen en el
+// blob, no necesariamente juntas. "roosevelt center" encuentra "Roosevelt
+// Center" pero también "edificio Center sobre Av. Roosevelt" — los avisos
+// escriben los nombres de mil formas.
+func zoneMatches(blob string, terms []string) bool {
+	for _, t := range terms {
+		words := strings.Fields(strings.ToLower(t))
+		if len(words) == 0 {
+			continue
+		}
+		ok := true
+		for _, w := range words {
+			if !strings.Contains(blob, w) {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			return true
+		}
+	}
+	return false
+}
+
 func containsAny(blob string, terms []string) bool {
 	for _, t := range terms {
 		if strings.Contains(blob, strings.ToLower(t)) {
@@ -710,6 +746,24 @@ func containsAny(blob string, terms []string) bool {
 		}
 	}
 	return false
+}
+
+// palabrasPrincipales reduce cada término de zona a su palabra más larga
+// ("edificio roosevelt center" → "roosevelt") para el reintento aproximado.
+func palabrasPrincipales(terms []string) []string {
+	var out []string
+	for _, t := range terms {
+		mejor := ""
+		for _, w := range strings.Fields(strings.ToLower(t)) {
+			if len(w) > len(mejor) && w != "edificio" && w != "torre" && w != "barrio" {
+				mejor = w
+			}
+		}
+		if len(mejor) >= 4 {
+			out = append(out, mejor)
+		}
+	}
+	return out
 }
 
 func abs(x int) int {
