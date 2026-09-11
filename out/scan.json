@@ -3699,25 +3699,6 @@
  },
  {
   "agency": {
-   "name": "forum.com.uy",
-   "domain": "forum.com.uy",
-   "website": "https://forum.com.uy"
-  },
-  "reachable": true,
-  "status_code": 200,
-  "final_url": "https://www.forum.com.uy/",
-  "engine": "custom",
-  "api_candidates": [
-   "https://www.forum.com.uy/ajax?service=registro-newsletter"
-  ],
-  "sitemaps": [
-   "https://www.forum.com.uy/sitemap.xml"
-  ],
-  "requires_javascript": false,
-  "has_inventory": false
- },
- {
-  "agency": {
    "name": "gonzalovidal.com",
    "domain": "gonzalovidal.com",
    "website": "https://gonzalovidal.com"
@@ -4137,5 +4118,52 @@
   "requires_javascript": false,
   "has_inventory": true,
   "listing_hits": 40
+ },
+ {
+  "agency": {
+   "name": "forumprop.com",
+   "domain": "forumprop.com",
+   "website": "https://forumprop.com"
+  },
+  "reachable": true,
+  "status_code": 200,
+  "final_url": "https://www.forumprop.com/",
+  "engine": "tera",
+  "developer": "sierra",
+  "signals": [
+   "ri.com.uy-images",
+   "sierra-footer",
+   "tera.com.uy-link"
+  ],
+  "property_pages": [
+   "https://www.forumprop.com/"
+  ],
+  "requires_javascript": false,
+  "has_inventory": true,
+  "listing_hits": 4
+ },
+ {
+  "agency": {
+   "name": "garciasantos.com",
+   "domain": "garciasantos.com",
+   "website": "https://garciasantos.com"
+  },
+  "reachable": true,
+  "status_code": 200,
+  "final_url": "https://www.garciasantos.com/",
+  "engine": "tera",
+  "developer": "sierra",
+  "signals": [
+   "ri.com.uy-images",
+   "sierra-footer",
+   "tera.com.uy-link"
+  ],
+  "property_pages": [
+   "https://www.garciasantos.com/",
+   "https://www.garciasantos.com/casas/en-alquiler/"
+  ],
+  "requires_javascript": false,
+  "has_inventory": true,
+  "listing_hits": 18
  }
 ]
