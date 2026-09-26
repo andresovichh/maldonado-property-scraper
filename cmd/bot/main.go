@@ -48,6 +48,9 @@ var (
 	histMu sync.Mutex
 	hist   = map[string][]string{} // últimas consultas por chat, para resolver «pero de esas…»
 
+	pagMu sync.Mutex
+	pags  = map[string]*pagina{} // paginación por chat para el comando «más»
+
 	crawlMu sync.Mutex // one crawl at a time
 )
 
@@ -185,10 +188,23 @@ func handle(chat, text string) {
 		send(chat, stats())
 	case text == "/actualizar":
 		go runCrawl(chat)
+	case strings.EqualFold(text, "más") || strings.EqualFold(text, "mas") || text == "/mas":
+		go masResultados(chat)
 	default:
 		answer(chat, text)
 	}
 }
+
+// pagina guarda los candidatos de la última búsqueda para ir sirviéndolos de
+// a tandas con «más».
+type pagina struct {
+	query string
+	cands []*model.Listing
+	total int
+	pos   int
+}
+
+const tandaPag = 35 // candidatos que ve Haiku por página (recomienda ~10-12)
 
 func stats() string {
 	mu.RLock()
@@ -293,10 +309,45 @@ func answer(chat, query string) {
 	if aprox {
 		query += "\n\n[NOTA DEL SISTEMA: no hubo match exacto de la zona/edificio pedido; los candidatos matchean parcialmente el nombre. Aclarale al usuario que no encontraste exactamente lo que pidió y que esto es lo más parecido.]"
 	}
-	reply, err := rankAndAnswer(query, sp, cands, total)
+	pagMu.Lock()
+	pags[chat] = &pagina{query: query, cands: cands, total: total, pos: 0}
+	pagMu.Unlock()
+	masResultados(chat)
+}
+
+// masResultados manda la siguiente tanda de la última búsqueda del chat.
+func masResultados(chat string) {
+	pagMu.Lock()
+	p := pags[chat]
+	pagMu.Unlock()
+	if p == nil {
+		send(chat, "No hay una búsqueda activa. Hacé una consulta primero.")
+		return
+	}
+	if p.pos >= len(p.cands) {
+		send(chat, "Ya viste todos los candidatos de esa búsqueda.")
+		return
+	}
+	typing(chat)
+	fin := p.pos + tandaPag
+	if fin > len(p.cands) {
+		fin = len(p.cands)
+	}
+	q := p.query
+	if p.pos > 0 {
+		q += fmt.Sprintf("\n\n[NOTA: el usuario pidió MÁS resultados; estos son los siguientes candidatos (del %d en adelante), no repitas los ya mostrados.]", p.pos+1)
+	}
+	reply, err := rankAndAnswer(q, nil, p.cands[p.pos:fin], p.total)
 	if err != nil {
 		send(chat, "Error consultando el modelo: "+err.Error())
 		return
+	}
+	pagMu.Lock()
+	p.pos = fin
+	quedan := len(p.cands) - p.pos
+	pagMu.Unlock()
+	if quedan > 0 {
+		reply += fmt.Sprintf("\n\n📊 Quedan %d candidatos más de esta búsqueda — decime «más» para verlos.", quedan)
 	}
 	send(chat, reply)
 }
@@ -438,7 +489,7 @@ func opMatches(want string, have *string) bool {
 	return *have == want
 }
 
-func rankAndAnswer(query string, sp *spec, cands []*model.Listing, total int) (string, error) {
+func rankAndAnswer(query string, _ *spec, cands []*model.Listing, total int) (string, error) {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "CONSULTA: %s\n\nCANDIDATOS (%d mostrados de %d que pasaron el filtro):\n",
 		query, len(cands), total)
@@ -448,7 +499,7 @@ func rankAndAnswer(query string, sp *spec, cands []*model.Listing, total int) (s
 	sys := "Sos el asistente inmobiliario personal del operador, sobre TU base scrapeada de inmobiliarias de Maldonado, Uruguay. " +
 		"Los CANDIDATOS son el resultado de tu propia búsqueda: nunca hables de 'el filtro', 'los que me pasaron' ni de terceros — es tu base y tu criterio. " +
 		"Si nada calza, decilo directo y sugerí cómo reformular la búsqueda. " +
-		"Recomendá como máximo 10 propiedades de los CANDIDATOS, las que mejor calcen con la consulta — incluso si se pasan un poco de precio, avisándolo. " +
+		"Recomendá las propiedades de los CANDIDATOS que mejor calcen con la consulta (hasta ~12; si el usuario pide explícitamente todas o muchas, hasta 25) — incluso si se pasan un poco de precio, avisándolo. " +
 		"Por cada una: precio, lo esencial, por qué la elegiste y su URL en línea aparte. Nunca repitas la misma propiedad/URL. " +
 		"Los precios de alquiler son mensuales en USD salvo que se indique otra cosa. " +
 		"Terminá con una línea de resumen. Español rioplatense, directo, sin markdown (Telegram texto plano)."
